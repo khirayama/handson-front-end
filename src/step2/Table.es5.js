@@ -41,5 +41,3 @@ Table.prototype.render = function () {
   }
   this.$tbody.innerHTML = tableEl.join('');
 };
-
-

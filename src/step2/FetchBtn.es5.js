@@ -10,4 +10,3 @@ FetchBtn.prototype.setEventListeners = function () {
     Step2.state.fetch();
   });
 };
-
