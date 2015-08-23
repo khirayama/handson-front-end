@@ -81,7 +81,7 @@ gulp.task('scripts:develop', function() {
 });
 
 gulp.task('scripts:coffee', function() {
-  return gulp.src([src + '**/app.coffee'])
+  return gulp.src([src + '**/*.coffee'])
     .pipe(plumber(options.plumber))
     .pipe(coffee())
     .pipe(gulp.dest(dest))
@@ -89,7 +89,7 @@ gulp.task('scripts:coffee', function() {
 });
 
 gulp.task('scripts:es5', function() {
-  return gulp.src([src + '**/app.es5.js'])
+  return gulp.src([src + '**/*.es5.js'])
     .pipe(plumber(options.plumber))
     .pipe(gulp.dest(dest))
     .pipe(browserSync.reload({stream: true}));
