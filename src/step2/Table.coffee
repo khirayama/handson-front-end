@@ -9,7 +9,7 @@ class App.Table
     @setEventListeners()
 
   setEventListeners: ->
-    self = @
+    _this = @
 
     Step2.state.onChange 'tableData', () =>
       @render()
@@ -18,7 +18,7 @@ class App.Table
       $sortBtn.addEventListener 'click', () ->
         sortkey = @dataset.sortkey
         Step2.state.sortByKey(sortkey)
-        self.render()
+        _this.render()
 
   addComma: (num) ->
     String(num).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')

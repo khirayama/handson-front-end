@@ -34,7 +34,7 @@ Step2.state = {
     });
   },
   fetch: function () {
-    var self = this;
+    var _this = this;
 
     setTimeout(function () {
       var res = [
@@ -42,7 +42,7 @@ Step2.state = {
         {name: 'EEE', amount: 10000},
         {name: 'FFF', amount: 1000}
       ];
-      self.set('tableData', res);
+      _this.set('tableData', res);
     }, 300);
   },
   init: function () {

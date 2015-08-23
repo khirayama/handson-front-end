@@ -10,10 +10,10 @@ export default class Table {
   }
   setEventListeners() {
     let i, $sortBtn, sortkey;
-    let self = this;
+    let _this = this;
 
     Step2.state.onChange('tableData', () => {
-      self.render();
+      _this.render();
     });
 
     for (i = 0; i < this.$sortBtns.length; i++) {
@@ -21,7 +21,7 @@ export default class Table {
       $sortBtn.addEventListener('click', function () {
         sortkey = this.dataset.sortkey;
         Step2.state.sortByKey(sortkey);
-        self.render();
+        _this.render();
       });
     }
   }

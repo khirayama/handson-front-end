@@ -8,12 +8,12 @@ class Tab
     @setEventListeners()
 
   setEventListeners: ->
-    self = @
+    _this = @
     for $btn, i in @$btns
       $btn.dataset.index = i
       $btn.addEventListener 'click', ->
-        self.index = +@dataset.index
-        self.showContent()
+        _this.index = +@dataset.index
+        _this.showContent()
 
   showContent: ->
     for $content, i in @$contents

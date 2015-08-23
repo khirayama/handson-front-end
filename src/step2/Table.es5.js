@@ -10,10 +10,10 @@ Table.prototype.init = function () {
 };
 Table.prototype.setEventListeners = function () {
   var i, $sortBnt, sortkey;
-  var self = this;
+  var _this = this;
 
   Step2.state.onChange('tableData', function () {
-    self.render();
+    _this.render();
   });
 
   for (i = 0; i < this.$sortBtns.length; i++) {
@@ -21,7 +21,7 @@ Table.prototype.setEventListeners = function () {
     $sortBtn.addEventListener('click', function () {
       sortkey = this.dataset.sortkey;
       Step2.state.sortByKey(sortkey);
-      self.render();
+      _this.render();
     });
   }
 };

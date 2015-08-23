@@ -11,14 +11,14 @@ Tab.prototype.init = function () {
 };
 Tab.prototype.setEventListeners = function () {
   var i, $btn;
-  var self = this;
+  var _this = this;
 
   for (i = 0; i < this.$btns.length; i++) {
     $btn = this.$btns[i];
     $btn.dataset.index = i;
     $btn.addEventListener('click', function () {
-      self.index = +this.dataset.index;
-      self.showContent();
+      _this.index = +this.dataset.index;
+      _this.showContent();
     });
   }
 };
