@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+  head
+    title StarterKit
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
+    link(rel="stylesheet" href="app.css")
+    link(rel="icon" href="")
+  body
+    section#app
+      .js-fetch-btn fetch
+      table.table.js-table
+        thead
+          td.js-sort-btn(data-sortkey="name") 名前
+          td.js-sort-btn(data-sortkey="amount") 金額
+        tbody.tbody.js-tbody
+    script(src="Table.es5.js")
+    script(src="FetchBtn.es5.js")
+    script(src="app.es5.js")
