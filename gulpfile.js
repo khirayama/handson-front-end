@@ -6,7 +6,6 @@ var plumber = require('gulp-plumber');
 var jade = require('gulp-jade');
 var sass = require('gulp-sass');
 var please = require('gulp-pleeease');
-var browserify = require('gulp-browserify');
 var notify = require('gulp-notify');
 var rimraf = require('rimraf');
 
@@ -68,19 +67,6 @@ gulp.task('styles:build', function() {
 });
 
 gulp.task('scripts:develop', function() {
-  return gulp.src([src + '**/app.es6.js'])
-    .pipe(plumber(options.plumber))
-    .pipe(browserify({
-      outfile: 'bundle.js',
-      transform: ['babelify'],
-      debug: true,
-      extensions: ['.jsx', '.js']
-    }))
-    .pipe(gulp.dest(dest))
-    .pipe(browserSync.reload({stream: true}));
-});
-
-gulp.task('scripts:coffee', function() {
   return gulp.src([src + '**/*.coffee'])
     .pipe(plumber(options.plumber))
     .pipe(coffee())
@@ -88,43 +74,10 @@ gulp.task('scripts:coffee', function() {
     .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('scripts:es5', function() {
-  return gulp.src([src + '**/*.es5.js'])
-    .pipe(plumber(options.plumber))
-    .pipe(gulp.dest(dest))
-    .pipe(browserSync.reload({stream: true}));
-});
-
 gulp.task('scripts:build', function() {
-  return gulp.src([src + '**/app.es6.js'])
-    .pipe(browserify({
-      outfile: 'bundle.js',
-      transform: ['babelify'],
-      debug: false,
-      extensions: ['.jsx', '.js']
-    }))
+  return gulp.src([src + '**/*.coffee'])
+    .pipe(coffee())
     .pipe(gulp.dest(release));
-});
-
-gulp.task('images:develop', function() {
-  return gulp.src([src + '**/*.+(png|jpg|gif)'])
-    .pipe(plumber(options.plumber))
-    .pipe(gulp.dest(dest));
-});
-
-gulp.task('images:build', function() {
-  return gulp.src([src + '**/*.+(png|jpg|gif)'])
-    .pipe(gulp.dest(release));
-});
-
-gulp.task('files:develop', function() {
-  return gulp.src([src + '**/*.+(csv|json)'])
-    .pipe(gulp.dest('public/'));
-});
-
-gulp.task('files:build', function() {
-  return gulp.src([src + '**/*.+(csv|json)'])
-    .pipe(gulp.dest('public/'));
 });
 
 gulp.task('server', function() {
@@ -138,16 +91,12 @@ gulp.task('server', function() {
 gulp.task('watch', function() {
   gulp.watch([src + '**/*.jade'], ['markups:develop']);
   gulp.watch([src + '**/*.scss'], ['styles:develop']);
-  gulp.watch([src + '**/*.es6.js', src + '**/*.jsx'], ['scripts:develop']);
   gulp.watch([src + '**/*.coffee'], ['scripts:coffee']);
-  gulp.watch([src + '**/*.es5.js'], ['scripts:es5']);
-  gulp.watch([src + '**/*.+(png|jpg|gif)'], ['images:develop']);
-  gulp.watch([src + '**/*.+(csv|json)'], ['files:develop']);
 });
 
 gulp.task('clean', function(cb) {
   rimraf('./prod', cb);
 });
 
-gulp.task('develop', ['markups:develop', 'styles:develop', 'scripts:develop', 'scripts:coffee', 'scripts:es5', 'images:develop', 'files:develop', 'watch', 'server']);
-gulp.task('build', ['clean', 'markups:build', 'styles:build', 'scripts:build', 'images:build', 'files:build']);
+gulp.task('develop', ['markups:develop', 'styles:develop', 'scripts:develop', 'watch', 'server']);
+gulp.task('build', ['clean', 'markups:build', 'styles:build', 'scripts:build']);
