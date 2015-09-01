@@ -8,7 +8,7 @@
   "scripts": {
     "start": "gulp develop",
     "build": "gulp build",
-    "test:lint": "eslint ./src/**/*.js",
+    "test:lint": "coffeelint ./src/**/*.coffee",
     "test:unit": "mocha --compilers js:espower-babel/guess test/**/*.js",
     "test": "npm run test:lint && npm run test:unit"
   },
@@ -20,6 +20,7 @@
   "license": "BSD",
   "devDependencies": {
     "browser-sync": "^2.8.2",
+    "coffeelint": "^1.11.1",
     "gulp": "^3.9.0",
     "gulp-coffee": "^2.3.1",
     "gulp-jade": "^1.1.0",

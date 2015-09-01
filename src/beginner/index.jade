@@ -1,20 +1,31 @@
 doctype html
 html(lang="en")
   head
-    title StarterKit
+    title BEGINNER | make a simple tab.
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
-    link(rel="stylesheet" href="app.css")
+    link(rel="stylesheet" href="/app.css")
     link(rel="icon" href="")
-  body
+  body.page-beginner
     section#app
-      .tab
-        ul.tab-btns
-          li.tab-btn.js-tab-btn tab1
-          li.tab-btn.js-tab-btn tab2
-          li.tab-btn.js-tab-btn tab3
-        ul.tab-contents
-          li.tab-content.js-tab-content content1
-          li.tab-content.js-tab-content content2
-          li.tab-content.js-tab-content content3
+      header
+        h1
+          | BEGINNER :-)
+          br
+          | make a simple tab.
+      section.content
+        .tab.js-tab
+          ul.tab-btns
+            li.tab-btn.js-tab-btn tab0
+            li.tab-btn.js-tab-btn tab1
+            li.tab-btn.js-tab-btn tab2
+          ul.tab-contents
+            li.tab-content.js-tab-content content0
+            li.tab-content.js-tab-content content1
+            li.tab-content.js-tab-content content2
+      footer
+        .btn-totop
+          a(href="/") > TOP
+        a(href="https://github.com/khirayama")
+          small &copy; khirayama.
     script(src="app.js")

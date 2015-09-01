@@ -91,7 +91,7 @@ gulp.task('server', function() {
 gulp.task('watch', function() {
   gulp.watch([src + '**/*.jade'], ['markups:develop']);
   gulp.watch([src + '**/*.scss'], ['styles:develop']);
-  gulp.watch([src + '**/*.coffee'], ['scripts:coffee']);
+  gulp.watch([src + '**/*.coffee'], ['scripts:develop']);
 });
 
 gulp.task('clean', function(cb) {

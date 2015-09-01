@@ -1,19 +1,32 @@
 doctype html
 html(lang="en")
   head
-    title StarterKit
+    title INTERMEDIATE | make a sortable tabel & fetch btn
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
-    link(rel="stylesheet" href="app.css")
+    link(rel="stylesheet" href="/app.css")
     link(rel="icon" href="")
-  body
+  body.page-intermediate
     section#app
-      .js-fetch-btn fetch
-      table.table.js-table
-        thead
-          td.js-sort-btn(data-sortkey="name") 名前
-          td.js-sort-btn(data-sortkey="amount") 金額
-        tbody.tbody.js-tbody
+      header
+        h1
+          | INTERMEDIATE :-)
+          br
+          | make a sortable tabel & fetch btn
+      section.content
+        table.table.js-table
+          thead
+            th.btn-sort.js-btn-sort(data-sortkey="name") NAME
+            th.btn-sort.js-btn-sort(data-sortkey="amount") AMOUNT
+          tbody.tbody.js-tbody
+        .btn-fetch.js-btn-fetch fetch new data!
+        ul.list-challenge
+          li.list-challenge-item Add incremental search.
+      footer
+        .btn-totop
+          a(href="/") > TOP
+        a(href="https://github.com/khirayama")
+          small &copy; khirayama.
     script(src="Table.js")
     script(src="FetchBtn.js")
     script(src="app.js")

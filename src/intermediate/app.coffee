@@ -1,12 +1,8 @@
 window.App = window.App || {}
-window.Step2 = window.Step2 || {}
+window.Intermediate = window.Intermediate || {}
 
-Step2.state =
-  tableData: [
-    {name: 'AAA', amount: 3000},
-    {name: 'BBB', amount: 1000},
-    {name: 'CCC', amount: 2000}
-  ]
+Intermediate.state =
+  data: [],
   _events: {}
   get: (key) ->
     this[key]
@@ -22,35 +18,39 @@ Step2.state =
     @_events[key] = @_events[key] || []
     @_events[key].push(callback)
 
-  sortByKey: (key) ->
-    @tableData.sort (a, b) ->
-      x = a[key]
-      y = b[key]
-
-      if x > y
-        return 1
-      if x < y
-        return -1
-      return 0
-
   fetch: () ->
     setTimeout () =>
-      res = [
-        {name: 'DDD', amount: 5000}
-        {name: 'EEE', amount: 10000}
-        {name: 'FFF', amount: 1000}
-      ]
-      @set('tableData', res)
+      res = Intermediate.state.genData()
+      @set('data', res)
     , 300
+
+  genData: () ->
+    allData = [
+      {name: 'AAA', amount: 3000}
+      {name: 'BBB', amount: 1000}
+      {name: 'CCC', amount: 2000}
+      {name: 'DDD', amount: 5000}
+      {name: 'EEE', amount: 10000}
+      {name: 'FFF', amount: 1000}
+      {name: 'GGG', amount: 3000}
+      {name: 'HHH', amount: 1000}
+      {name: 'III', amount: 2000}
+      {name: 'JJJ', amount: 5000}
+      {name: 'KKK', amount: 10000}
+    ]
+    allData.sort (x, y) ->
+      Math.random() - Math.random()
+    allData[0...5]
 
   init: () ->
     @_events = {}
+    @fetch()
 
 (->
   $table = document.querySelector('.js-table')
-  $fetchBtn = document.querySelector('.js-fetch-btn')
+  $fetchBtn = document.querySelector('.js-btn-fetch')
 
-  Step2.state.init()
+  Intermediate.state.init()
   new App.Table($table)
   new App.FetchBtn($fetchBtn)
 )()

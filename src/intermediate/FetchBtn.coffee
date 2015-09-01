@@ -7,4 +7,4 @@ class App.FetchBtn
 
   setEventListeners: () ->
     @$el.addEventListener 'click', () ->
-      Step2.state.fetch()
+      Intermediate.state.fetch()

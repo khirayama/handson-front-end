@@ -2,22 +2,25 @@ window.App = window.App || {}
 
 class App.Table
   constructor: ($el) ->
+    @data = []
+    @reverse = false
     @$el = $el
     @$tbody = @$el.querySelector('.js-tbody')
-    @$sortBtns = @$el.querySelectorAll('.js-sort-btn')
+    @$sortBtns = @$el.querySelectorAll('.js-btn-sort')
     @render()
     @setEventListeners()
 
   setEventListeners: ->
     _this = @
 
-    Step2.state.onChange 'tableData', () =>
+    Intermediate.state.onChange 'data', () =>
+      @data = Intermediate.state.get('data')
       @render()
 
     for $sortBtn in @$sortBtns
       $sortBtn.addEventListener 'click', () ->
         sortkey = @dataset.sortkey
-        Step2.state.sortByKey(sortkey)
+        _this._sortByKey(sortkey)
         _this.render()
 
   addComma: (num) ->
@@ -26,11 +29,30 @@ class App.Table
   template: (data) ->
     "<tr><td>#{data.name}</td><td>#{@addComma(data.amount)}</td></tr>"
 
+  _sortByKey: (key) ->
+    @reverse = !@reverse
+    @data.sort (a, b) =>
+      x = a[key]
+      y = b[key]
+
+      if @reverse
+        if x > y
+          return 1
+        if x < y
+          return -1
+        return 0
+      else
+        if x > y
+          return -1
+        if x < y
+          return 1
+        return 0
+
+
   render: () ->
-    tableData = Step2.state.get('tableData')
     tableEl = []
 
-    for _tableData in tableData
-      tableEl.push(@template(_tableData))
+    for data in @data
+      tableEl.push(@template(data))
 
     @$tbody.innerHTML = tableEl.join('')

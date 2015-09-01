@@ -4,6 +4,7 @@ class Tab
     @$el = $el
     @$btns = $el.querySelectorAll('.js-tab-btn')
     @$contents = $el.querySelectorAll('.js-tab-content')
+    @toggleBtn()
     @showContent()
     @setEventListeners()
 
@@ -13,16 +14,24 @@ class Tab
       $btn.dataset.index = i
       $btn.addEventListener 'click', ->
         _this.index = +@dataset.index
+        _this.toggleBtn()
         _this.showContent()
+
+  toggleBtn: ->
+    for $btn, i in @$btns
+      if @index == i
+        $btn.classList.add('is-active')
+      else
+        $btn.classList.remove('is-active')
 
   showContent: ->
     for $content, i in @$contents
       if @index == i
-        $content.style.display = 'block'
+        $content.classList.add('is-active')
       else
-        $content.style.display = 'none'
+        $content.classList.remove('is-active')
 
 (->
-  $tab = document.querySelector('.tab')
+  $tab = document.querySelector('.js-tab')
   new Tab($tab)
 )()
