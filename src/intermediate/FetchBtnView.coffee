@@ -1,11 +1,7 @@
-class FetchBtnView
-  constructor: (model, $el) ->
-    @model = model
-    @$el = $el
+class @FetchBtnView
+  constructor: (@model, @$el) ->
     @setEventListeners()
 
   setEventListeners: () ->
     @$el.addEventListener 'click', () =>
       @model.fetch()
-
-window.FetchBtnView = FetchBtnView

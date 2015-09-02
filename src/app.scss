@@ -2,8 +2,7 @@
 $width-content: 600px;
 $color-main: #e2740e;
 $color-black: #333;
-$color-darkgray: #666;
-$color-gray: #999;
+$color-gray: #666;
 $color-white: #fff;
 
 * {
@@ -90,11 +89,11 @@ footer {
           }
           &:hover {
             label {
-              color: $color-darkgray;
+              color: $color-black;
               font-weight: bold;
             }
             small {
-              color: $color-darkgray;
+              color: $color-black;
             }
           }
         }

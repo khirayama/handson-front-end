@@ -1,9 +1,9 @@
-class TabView
-  constructor: ($el) ->
-    @index = 0
-    @$el = $el
-    @$btns = $el.querySelectorAll('.js-tab-btn')
-    @$contents = $el.querySelectorAll('.js-tab-content')
+class @TabView
+  index: 0
+
+  constructor: (@$el) ->
+    @$btns = @$el.querySelectorAll('.js-tab-btn')
+    @$contents = @$el.querySelectorAll('.js-tab-content')
     @toggleBtn()
     @showContent()
     @setEventListeners()
@@ -30,5 +30,3 @@ class TabView
         $content.classList.add('is-active')
       else
         $content.classList.remove('is-active')
-
-window.TabView = TabView

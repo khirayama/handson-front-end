@@ -1,8 +1,8 @@
-class IntermediateModel
+class @IntermediateModel
+  _events: {}
+  data: []
 
   constructor: () ->
-    @_events = {}
-    @data = []
     @fetch()
 
   get: (key) ->
@@ -42,5 +42,3 @@ class IntermediateModel
     allData.sort (x, y) ->
       Math.random() - Math.random()
     allData[0...5]
-
-window.IntermediateModel = IntermediateModel

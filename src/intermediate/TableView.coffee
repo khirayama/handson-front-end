@@ -1,9 +1,8 @@
-class TableView
-  constructor: (model, $el) ->
-    @data = []
-    @reverse = false
-    @model = model
-    @$el = $el
+class @TableView
+  data: []
+  reverse: false
+
+  constructor: (@model, @$el) ->
     @$tbody = @$el.querySelector('.js-tbody')
     @$sortBtns = @$el.querySelectorAll('.js-btn-sort')
     @render()
@@ -55,5 +54,3 @@ class TableView
       tableEl.push(@template(data))
 
     @$tbody.innerHTML = tableEl.join('')
-
-window.TableView = TableView
