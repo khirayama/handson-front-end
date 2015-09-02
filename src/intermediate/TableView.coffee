@@ -1,9 +1,8 @@
-window.App = window.App || {}
-
-class App.Table
-  constructor: ($el) ->
+class TableView
+  constructor: (model, $el) ->
     @data = []
     @reverse = false
+    @model = model
     @$el = $el
     @$tbody = @$el.querySelector('.js-tbody')
     @$sortBtns = @$el.querySelectorAll('.js-btn-sort')
@@ -13,8 +12,8 @@ class App.Table
   setEventListeners: ->
     _this = @
 
-    Intermediate.state.onChange 'data', () =>
-      @data = Intermediate.state.get('data')
+    @model.onChange 'data', () =>
+      @data = @model.get('data')
       @render()
 
     for $sortBtn in @$sortBtns
@@ -56,3 +55,5 @@ class App.Table
       tableEl.push(@template(data))
 
     @$tbody.innerHTML = tableEl.join('')
+
+window.TableView = TableView
