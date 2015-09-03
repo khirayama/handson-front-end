@@ -8,6 +8,7 @@ var sass = require('gulp-sass');
 var please = require('gulp-pleeease');
 var notify = require('gulp-notify');
 var rimraf = require('rimraf');
+var fs = require('fs');
 
 var options = {
   plumber: {
@@ -22,12 +23,13 @@ var options = {
 var src = 'src/';
 var dest = 'dist/';
 var release = 'prod/';
-var test = 'test/';
 
 gulp.task('markups:develop', function() {
-  return gulp.src(src + '**/*.jade')
+  return gulp.src([src + '**/*.jade'])
     .pipe(plumber(options.plumber))
-    .pipe(jade())
+    .pipe(jade({
+      data: JSON.parse(fs.readFileSync('./constants.json', 'utf8'))
+    }))
     .pipe(gulp.dest(dest))
     .pipe(browserSync.reload({stream: true}));
 });
@@ -89,7 +91,7 @@ gulp.task('server', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch([src + '**/*.jade'], ['markups:develop']);
+  gulp.watch([src + '**/*.jade', './constants.json'], ['markups:develop']);
   gulp.watch([src + '**/*.scss'], ['styles:develop']);
   gulp.watch([src + '**/*.coffee'], ['scripts:develop']);
 });
