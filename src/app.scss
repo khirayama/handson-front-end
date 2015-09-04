@@ -100,60 +100,88 @@ footer {
   }
 }
 
-.page-beginner {
-  .tab {
-    margin: 100px auto;
-    width: 500px;
-    border: solid 1px $color-gray;
-    background-color: $color-main;
-    .tab-btns {
-      display: table;
-      width: 100%;
-      table-layout: fixed;
-      list-style: none;
-      .tab-btn {
-        display: table-cell;
-        height: 40px;
-        background-color: $color-white;
-        text-align: center;
-        line-height: 40px;
-        cursor: pointer;
-        &.is-active {
-          background-color: $color-main;
-          color: $color-white;
-        }
-        &+.tab-btn {
-          border-left: solid 1px $color-gray;
-        }
+// btn component
+.btn {
+  margin-bottom: 24px;
+  padding: 8px 0;
+  border-radius: 3px;
+  background-color: $color-main;
+  color: $color-white;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    opacity: .6;
+  }
+  &:active {
+    opacity: .8;
+  }
+}
+// tab component
+.tab {
+  margin: 100px auto;
+  width: 500px;
+  border: solid 1px $color-gray;
+  background-color: $color-main;
+  .tab-btns {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    list-style: none;
+    .tab-btn {
+      display: table-cell;
+      height: 40px;
+      background-color: $color-white;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      &.is-active {
+        background-color: $color-main;
+        color: $color-white;
+      }
+      &+.tab-btn {
+        border-left: solid 1px $color-gray;
       }
     }
-    .tab-contents {
+  }
+  .tab-contents {
+    width: 100%;
+    list-style: none;
+    .tab-content {
+      display: none;
       width: 100%;
-      list-style: none;
-      .tab-content {
-        display: none;
-        width: 100%;
-        height: 300px;
-        color: $color-white;
-        text-align: center;
-        line-height: 300px;
-        &.is-active {
-          display: block;
-        }
+      height: 300px;
+      color: $color-white;
+      text-align: center;
+      line-height: 300px;
+      &.is-active {
+        display: block;
       }
     }
   }
 }
-
-.page-intermediate {
-  .btn-fetch {
-    margin-bottom: 24px;
-    padding: 8px 0;
-    border-radius: 3px;
+// table component
+.table {
+  margin-bottom: 30px;
+  width: 100%;
+  border-collapse: collapse;
+  th,
+  td {
+    padding: 4px 8px;
+    width: 50%;
+  }
+  th {
+    border: solid 1px $color-main;
+  }
+  td {
+    border: solid 1px $color-gray;
+  }
+  .btn-sort {
     background-color: $color-main;
     color: $color-white;
-    text-align: center;
     cursor: pointer;
+    &:after {
+      content: '↓';
+    }
     &:hover {
       opacity: .6;
     }
@@ -161,34 +189,49 @@ footer {
       opacity: .8;
     }
   }
-  .table {
-    margin-bottom: 30px;
+}
+// modal component
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  .modal-background {
     width: 100%;
-    border-collapse: collapse;
-    th,
-    td {
-      padding: 4px 8px;
-      width: 50%;
-    }
-    th {
-      border: solid 1px $color-main;
-    }
-    td {
-      border: solid 1px $color-gray;
-    }
-    .btn-sort {
-      background-color: $color-main;
-      color: $color-white;
-      cursor: pointer;
-      &:after {
-        content: '↓';
-      }
-      &:hover {
-        opacity: .6;
-      }
-      &:active {
-        opacity: .8;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+  }
+  .modal-box {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    padding: 10px;
+    width: 300px;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+    transform: translate(-50%, -50%);
+    .modal-header {
+      &-title {
+        font-weight: bold;
       }
     }
+    .modal-content {
+      padding: 20px 0 0;
+      .form-add-item {
+        input {
+          margin-bottom: 8px;
+          padding: 4px 8px;
+          width: 100%;
+          border: solid 1px $color-gray;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+  &.is-open {
+    display: block;
   }
 }

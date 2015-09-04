@@ -3,6 +3,7 @@ class @TableView
   reverse: false
 
   constructor: (@model, @$el) ->
+    @data = @model.get('data')
     @$tbody = @$el.querySelector('.js-tbody')
     @$sortBtns = @$el.querySelectorAll('.js-btn-sort')
     @render()

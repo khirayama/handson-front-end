@@ -1,11 +1,14 @@
 (->
   $tables = document.querySelectorAll('.js-table')
-  $fetchBtns = document.querySelectorAll('.js-btn-fetch')
+  $addItemBtns = document.querySelectorAll('.js-btn-add-item')
+  $addItemModals = document.querySelectorAll('.js-modal-add-item')
 
-  model = new IntermediateModel()
+  model = new SenirModel()
 
   for $table in $tables
     new TableView(model, $table)
-  for $fetchBtn in $fetchBtns
-    new FetchBtnView(model, $fetchBtn)
+  for $addItemBtn in $addItemBtns
+    new AddItemBtnView(model, $addItemBtn)
+  for $addItemModal in $addItemModals
+    new AddItemModalView(model, $addItemModal)
 )()

@@ -1,7 +1,7 @@
-class @FetchBtnView
+class @AddItemBtnView
   constructor: (@model, @$el) ->
     @setEventListeners()
 
   setEventListeners: () ->
     @$el.addEventListener 'click', () =>
-      @model.fetch()
+      @model.set('isShowModal', true)
