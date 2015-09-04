@@ -65,36 +65,34 @@ footer {
 }
 
 .page-index {
-  .content {
-    h2 {
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  .list-rank {
+    margin-bottom: 36px;
+    padding: 0 24px;
+    list-style: none;
+    .list-rank-item {
       margin-bottom: 20px;
-      font-size: 24px;
-    }
-    .list-rank {
-      margin-bottom: 36px;
-      padding: 0 24px;
-      list-style: none;
-      .list-rank-item {
-        margin-bottom: 20px;
-        a {
-          text-decoration: none;
+      a {
+        text-decoration: none;
+        label {
+          color: $color-gray;
+          font-weight: bold;
+          transition: color .2s ease-out;
+        }
+        small {
+          color: $color-gray;
+          transition: color .2s ease-out;
+        }
+        &:hover {
           label {
-            color: $color-gray;
+            color: $color-black;
             font-weight: bold;
-            transition: color .2s ease-out;
           }
           small {
-            color: $color-gray;
-            transition: color .2s ease-out;
-          }
-          &:hover {
-            label {
-              color: $color-black;
-              font-weight: bold;
-            }
-            small {
-              color: $color-black;
-            }
+            color: $color-black;
           }
         }
       }

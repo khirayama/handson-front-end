@@ -1,33 +1,23 @@
-doctype html
-html(lang="en")
-  head
-    title INTERMEDIATE | make a sortable tabel & fetch btn
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
-    link(rel="stylesheet" href="/app.css")
-    link(rel="icon" href="")
-  body.page-intermediate
-    section#app
-      header
-        h1
-          | INTERMEDIATE :-)
-          br
-          | make a sortable tabel & fetch btn
-      section.content
-        table.table.js-table
-          thead
-            th.btn-sort.js-btn-sort(data-sortkey="name") NAME
-            th.btn-sort.js-btn-sort(data-sortkey="amount") AMOUNT
-          tbody.tbody.js-tbody
-        .btn-fetch.js-btn-fetch fetch new data!
-        ul.list-challenge
-          li.list-challenge-item Add incremental search.
-      footer
-        .btn-totop
-          a(href="/") > TOP
-        a(href="https://github.com/khirayama")
-          small &copy; khirayama.
-    script(src="IntermediateModel.js")
-    script(src="TableView.js")
-    script(src="FetchBtnView.js")
-    script(src="app.js")
+extends ../_layout
+block title
+  title #{lessons[1].name} | #{lessons[1].description}
+block header
+  h1
+    | #{lessons[1].name} :-)
+    br
+    | #{lessons[1].description}
+block content
+  .page-intermediate
+    table.table.js-table
+      thead
+        th.btn-sort.js-btn-sort(data-sortkey="name") NAME
+        th.btn-sort.js-btn-sort(data-sortkey="amount") AMOUNT
+      tbody.tbody.js-tbody
+    .btn-fetch.js-btn-fetch FETCH NEW DATA!
+    ul.list-challenge
+      li.list-challenge-item Add incremental search.
+block scripts
+  script(src="IntermediateModel.js")
+  script(src="TableView.js")
+  script(src="FetchBtnView.js")
+  script(src="app.js")

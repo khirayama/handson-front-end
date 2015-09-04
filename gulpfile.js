@@ -28,7 +28,7 @@ gulp.task('markups:develop', function() {
   return gulp.src([src + '**/*.jade'])
     .pipe(plumber(options.plumber))
     .pipe(jade({
-      data: JSON.parse(fs.readFileSync('./constants.json', 'utf8'))
+      data: JSON.parse(fs.readFileSync(src + 'constants.json', 'utf8'))
     }))
     .pipe(gulp.dest(dest))
     .pipe(browserSync.reload({stream: true}));
@@ -36,7 +36,9 @@ gulp.task('markups:develop', function() {
 
 gulp.task('markups:build', function() {
   return gulp.src(src + '**/*.jade')
-    .pipe(jade())
+    .pipe(jade({
+      data: JSON.parse(fs.readFileSync(src + 'constants.json', 'utf8'))
+    }))
     .pipe(gulp.dest(release));
 });
 

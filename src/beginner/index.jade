@@ -1,32 +1,22 @@
-doctype html
-html(lang="en")
-  head
-    title BEGINNER | make a simple tab.
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
-    link(rel="stylesheet" href="/app.css")
-    link(rel="icon" href="")
-  body.page-beginner
-    section#app
-      header
-        h1
-          | BEGINNER :-)
-          br
-          | make a simple tab.
-      section.content
-        .tab.js-tab
-          ul.tab-btns
-            li.tab-btn.js-tab-btn tab0
-            li.tab-btn.js-tab-btn tab1
-            li.tab-btn.js-tab-btn tab2
-          ul.tab-contents
-            li.tab-content.js-tab-content content0
-            li.tab-content.js-tab-content content1
-            li.tab-content.js-tab-content content2
-      footer
-        .btn-totop
-          a(href="/") > TOP
-        a(href="https://github.com/khirayama")
-          small &copy; khirayama.
-    script(src="TabView.js")
-    script(src="app.js")
+extends ../_layout
+block title
+  title #{lessons[0].name} | #{lessons[0].description}
+block header
+  h1
+    | #{lessons[0].name} :-)
+    br
+    | #{lessons[0].description}
+block content
+  .page-beginner
+    .tab.js-tab
+      ul.tab-btns
+        li.tab-btn.js-tab-btn tab0
+        li.tab-btn.js-tab-btn tab1
+        li.tab-btn.js-tab-btn tab2
+      ul.tab-contents
+        li.tab-content.js-tab-content content0
+        li.tab-content.js-tab-content content1
+        li.tab-content.js-tab-content content2
+block scripts
+  script(src="TabView.js")
+  script(src="app.js")
