@@ -6,7 +6,7 @@ FetchBtnView = microModule.import 'FetchBtnView'
   $tables = document.querySelectorAll '.js-table'
   $fetchBtns = document.querySelectorAll '.js-btn-fetch'
 
-  model = new IntermediateModel()
+  model = new IntermediateModel
 
   for $table in $tables
     new TableView model, $table

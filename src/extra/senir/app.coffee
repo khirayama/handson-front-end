@@ -8,7 +8,7 @@ AddItemModalView = microModule.import 'AddItemModalView'
   $addItemBtns = document.querySelectorAll '.js-btn-add-item'
   $addItemModals = document.querySelectorAll '.js-modal-add-item'
 
-  model = new SenirModel()
+  model = new SenirModel
 
   for $table in $tables
     new TableView model, $table

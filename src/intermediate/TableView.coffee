@@ -6,6 +6,7 @@ class @TableView
     @data = @model.get 'data'
     @$tbody = @$el.querySelector '.js-tbody'
     @$sortBtns = @$el.querySelectorAll '.js-btn-sort'
+    @render()
     @setEventListeners()
 
   setEventListeners: ->

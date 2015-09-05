@@ -9,13 +9,13 @@ microModule.export class TabView extends MicroView
     super()
 
   init: ->
+    for $btn, i in @$btns
+      $btn.dataset.index = i
     @toggleBtn()
     @showContent()
 
   setEventListeners: ->
     _this = @
-    for $btn, i in @$btns
-      $btn.dataset.index = i
 
     @on @$btns, 'click', ->
       _this.index = +@dataset.index
@@ -25,13 +25,13 @@ microModule.export class TabView extends MicroView
   toggleBtn: ->
     for $btn, i in @$btns
       if @index == i
-        $btn.classList.add 'is-active'
+        @addClass $btn, 'is-active'
       else
-        $btn.classList.remove 'is-active'
+        @removeClass $btn, 'is-active'
 
   showContent: ->
     for $content, i in @$contents
       if @index == i
-        $content.classList.add 'is-active'
+        @addClass $content, 'is-active'
       else
-        $content.classList.remove 'is-active'
+        @removeClass $content, 'is-active'

@@ -1,6 +1,4 @@
 microModule.export class MicroModel
-  constructor: ->
-
   get: (key) ->
     this[key]
 

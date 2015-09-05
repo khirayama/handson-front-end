@@ -20,10 +20,10 @@ microModule.export class AddItemModalView extends MicroView
       @addItem()
 
   show: ->
-    @$el.classList.add 'is-open'
+    @addClass @$el, 'is-open'
 
   hide: ->
-    @$el.classList.remove 'is-open'
+    @removeClass @$el, 'is-open'
 
   addItem: ->
     _name = @$itemNameInput.value
