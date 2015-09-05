@@ -12,6 +12,7 @@ deployment:
       - npm install
       - git checkout gh-pages
       - npm run build
+      - rm -rf beginner intermediate senir extra
       - mv prod/* ./
       - git add .
       - git commit -m "publish gh-pages"
