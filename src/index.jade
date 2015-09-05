@@ -1,6 +1,8 @@
 extends _layout
 block title
   title= title
+block style
+  link(rel="stylesheet" href="app.css")
 block header
   h1
     = title
@@ -26,7 +28,7 @@ block content
           - for (var i = 0; i < lessons.length; i++) {
             - var lesson = lessons[i];
               li.list-rank-item
-                a(href="/extra#{lesson.url}")
+                a(href="extra/#{lesson.url}")
                   label= lesson.name
                   br
                   small= lesson.description

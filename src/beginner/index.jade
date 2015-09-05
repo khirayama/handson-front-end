@@ -1,6 +1,8 @@
 extends ../_layout
 block title
   title #{lessons[0].name} | #{lessons[0].description}
+block style
+  link(rel="stylesheet" href="../app.css")
 block header
   h1
     | #{lessons[0].name} :-)
@@ -17,6 +19,8 @@ block content
         li.tab-content.js-tab-content content0
         li.tab-content.js-tab-content content1
         li.tab-content.js-tab-content content2
+  .btn-to-index
+    a(href="../") > INDEX
 block scripts
   script(src="TabView.js")
   script(src="app.js")

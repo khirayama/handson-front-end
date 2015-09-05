@@ -1,6 +1,8 @@
 extends ../../_layout
 block title
   title #{lessons[1].name} | #{lessons[1].description}
+block style
+  link(rel="stylesheet" href="../../app.css")
 block header
   h1
     | #{lessons[1].name} :-)
@@ -16,6 +18,8 @@ block content
     .btn.js-btn-fetch FETCH NEW DATA!
     ul.list-challenge
       li.list-challenge-item Add incremental search.
+  .btn-to-index
+    a(href="../../") > INDEX
 block scripts
   script(src="../MicroModule.js")
   script(src="../MicroModel.js")

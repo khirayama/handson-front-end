@@ -1,6 +1,8 @@
 extends ../_layout
 block title
   title #{lessons[2].name} | #{lessons[2].description}
+block style
+  link(rel="stylesheet" href="../app.css")
 block header
   h1
     | #{lessons[2].name} :-)
@@ -14,6 +16,8 @@ block content
         th.btn-sort.js-btn-sort(data-sortkey="amount") AMOUNT
       tbody.tbody.js-tbody
     .btn.js-btn-add-item ADD AN ITEM
+  .btn-to-index
+    a(href="../") > INDEX
 block other
   .modal.js-modal-add-item
     .modal-background

@@ -5,6 +5,8 @@ deployment:
   master:
     branch: master
     commands:
+      - git config --global user.name "circleci"
+      - git config --global user.email "circleci@feedforce.jp"
       - git clone git@github.com:khirayama/hanson-front-end.git
       - cd hanson-front-end
       - npm install
