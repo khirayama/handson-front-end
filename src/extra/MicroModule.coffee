@@ -1,11 +1,10 @@
 class MicroModule
-  constructor: ->
-    window.__microModules = {}
+  _modules: {}
 
   export: (module) ->
-    window.__microModules[module.name] = module
+    @_modules[module.name] = module
 
   import: (name) ->
-    window.__microModules[name]
+    @_modules[name]
 
 window.microModule = new MicroModule
