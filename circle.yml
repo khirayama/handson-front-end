@@ -9,11 +9,11 @@ deployment:
       - git config --global user.email "circleci@feedforce.jp"
       - git clone git@github.com:khirayama/hanson-front-end.git
       - cd hanson-front-end
-      - npm install
       - git checkout gh-pages
+      - npm install
       - npm run build
       - rm -rf beginner intermediate senir extra
       - mv prod/* ./
       - git add .
       - git commit -m "publish gh-pages"
-      - git push origin gh-pages
+      - git push origin gh-pages -f
