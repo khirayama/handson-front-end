@@ -1,4 +1,5 @@
 # Hands on Front-end :-) with CoffeeScript
+[Hads on Front-end :-) with CoffeeScript http://khirayama.github.io/hanson-front-end/](http://khirayama.github.io/hanson-front-end/)
 
 対象:
 
@@ -24,6 +25,8 @@
 またテンプレートにはslimによく似たjadeを用いました。  
 このリポジトリに多くの目的を入れたくはなかったのですが、今、ウェブフロント開発はどのような環境で行われているのかに触れられるように。という願いもあります。  
 これによりバックエンド開発者の方にも、役割が増しているウェブフロントのよりよい開発環境とは何か考えるきっかけになれば幸いです。  
+
+CoffeeScriptについて理解したいのであれば、この資料がオススメです。[The Little Book on CoffeeScript](http://minghai.github.io/library/coffeescript/index.html)
 
 ## Get started
 
@@ -126,24 +129,24 @@ CoffeeScriptにおいては別ファイルからクラスを使用しようと�
 - そのページの起点となるファイルはapp.coffeeとし、各クラスごとに分割してください。
 - Viewクラスのクラス名、ファイル名はSomeViewのように末尾はViewとしてください。
 
-## about jQuery
+## About jQuery
 本リポジトリではjQueryを使用していませんが、jQueryは非常に優れたライブラリです。  
 JavaScriptエンジニアだけなら使用しなくても問題ないでしょう。しかし、チームで開発するのであれば、優れた知見は有効活用すべきです。  
 ですが、jQueryは強力が故に本来避けるべきことも簡単に行えてしまいます。そのため、以下に推奨・非推奨メソッドを示します。  
 より詳しく知りたい場合にはjQueryの15種類のAPI群を把握することを推奨します。  
 
-### recommended jQuery Methods
+### Recommended jQuery Methods
 find, addClass, removeClass, on, off, trigger, $.ajax...  
 上記に示すようなDOMアクセス系、クラス操作系、イベント操作系、通信系のみに絞ることが望ましいです。  
 それ以外の使用が必要な場合は、設計・実装を見直すよい機会かもしれません。
 
-### deprecated jQuery Methods
+### Deprecated jQuery Methods
 css, animate, click, focus...  
 上記に示すようなスタイル操作系、イベントのショートハンドなどは避けることが望ましいです。  
 使用するAPIの種類が多いと変更やリファクタリングを難しくするとともに現状と違うライブラリ・フレームワークの導入の障害になることがあります。  
 特に現在のJavaScriptの環境では、コンパクトな状態を維持するのはとても重要だと感じます。  
 
-## 意見・要望など
+## Feedback
 issueやwiki、mailにて受け付けています。もちろんRullRequestも。お待ちしております。  
 受託などの場合、CoffeeScriptの使用が限られる場合があります。そのため、筆者ははES5とES6での実装も準備しています。もう少し待ってください。  
 英語訳してくださる方も募集していますよ！
