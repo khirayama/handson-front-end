@@ -1,0 +1,10 @@
+machine:
+  timezone: Asia/Tokyo
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - git clone git@github.com:khirayama/hanson-front-end.git
+      - cd hanson-front-end
+      - npm install
