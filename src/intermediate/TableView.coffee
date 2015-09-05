@@ -3,27 +3,26 @@ class @TableView
   reverse: false
 
   constructor: (@model, @$el) ->
-    @data = @model.get('data')
-    @$tbody = @$el.querySelector('.js-tbody')
-    @$sortBtns = @$el.querySelectorAll('.js-btn-sort')
-    @render()
+    @data = @model.get 'data'
+    @$tbody = @$el.querySelector '.js-tbody'
+    @$sortBtns = @$el.querySelectorAll '.js-btn-sort'
     @setEventListeners()
 
   setEventListeners: ->
     _this = @
 
-    @model.onChange 'data', () =>
-      @data = @model.get('data')
+    @model.onChange 'data', =>
+      @data = @model.get 'data'
       @render()
 
     for $sortBtn in @$sortBtns
-      $sortBtn.addEventListener 'click', () ->
+      $sortBtn.addEventListener 'click', ->
         sortkey = @dataset.sortkey
-        _this._sortByKey(sortkey)
+        _this._sortByKey sortkey
         _this.render()
 
   addComma: (num) ->
-    String(num).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')
+    String(num).replace /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,'
 
   template: (data) ->
     "<tr><td>#{data.name}</td><td>#{@addComma(data.amount)}</td></tr>"
@@ -48,10 +47,10 @@ class @TableView
         return 0
 
 
-  render: () ->
+  render: ->
     tableEl = []
 
     for data in @data
-      tableEl.push(@template(data))
+      tableEl.push(@template data)
 
-    @$tbody.innerHTML = tableEl.join('')
+    @$tbody.innerHTML = tableEl.join ''

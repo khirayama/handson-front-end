@@ -1,4 +1,4 @@
-extends ../_layout
+extends ../../_layout
 block title
   title #{lessons[2].name} | #{lessons[2].description}
 block header
@@ -28,6 +28,9 @@ block other
             input.js-input-add-item-amount(type="number" placeholder="AMOUNT")
         .btn.js-btn-add-item-submit ADD ITEM!
 block scripts
+  script(src="../MicroModule.js")
+  script(src="../MicroModel.js")
+  script(src="../MicroView.js")
   script(src="SenirModel.js")
   script(src="../intermediate/TableView.js")
   script(src="AddItemBtnView.js")

@@ -14,7 +14,6 @@ class @AddItemModalView
       else
         @hide()
 
-      @toggleModal
     @$addItemSubmitBtn.addEventListener 'click', () =>
       @addItem()
 
