@@ -8,8 +8,12 @@ var sass = require('gulp-sass');
 var please = require('gulp-pleeease');
 var notify = require('gulp-notify');
 var rimraf = require('rimraf');
+var del= require('del');
 var fs = require('fs');
 
+var src = 'src/';
+var dest = 'dist/';
+var release = './';
 var options = {
   plumber: {
     errorHandler: notify.onError({
@@ -17,15 +21,20 @@ var options = {
       sound: false,
       wait: true
     })
+  },
+  markups: {
+    src: [src + '**/*.jade', '!**/_*.jade']
+  },
+  styles: {
+    src: [src + '**/app.scss']
+  },
+  scripts: {
+    src: [src + '**/*.coffee']
   }
 };
 
-var src = 'src/';
-var dest = 'dist/';
-var release = 'prod/';
-
 gulp.task('markups:develop', function() {
-  return gulp.src([src + '**/*.jade'])
+  return gulp.src(options.markups.src)
     .pipe(plumber(options.plumber))
     .pipe(jade({
       data: JSON.parse(fs.readFileSync(src + 'constants.json', 'utf8'))
@@ -34,8 +43,8 @@ gulp.task('markups:develop', function() {
     .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('markups:build', function() {
-  return gulp.src(src + '**/*.jade')
+gulp.task('markups:publish', function() {
+  return gulp.src(options.markups.src)
     .pipe(jade({
       data: JSON.parse(fs.readFileSync(src + 'constants.json', 'utf8'))
     }))
@@ -43,7 +52,7 @@ gulp.task('markups:build', function() {
 });
 
 gulp.task('styles:develop', function() {
-  return gulp.src(src + '**/app.scss')
+  return gulp.src(options.styles.src)
     .pipe(plumber(options.plumber))
     .pipe(sass({
       errLogToConsole: true,
@@ -57,8 +66,8 @@ gulp.task('styles:develop', function() {
     .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('styles:build', function() {
-  return gulp.src(src + '**/app.scss')
+gulp.task('styles:publish', function() {
+  return gulp.src(options.styles.src)
     .pipe(sass({
       errLogToConsole: true,
       sourceComments: 'normal'
@@ -71,15 +80,15 @@ gulp.task('styles:build', function() {
 });
 
 gulp.task('scripts:develop', function() {
-  return gulp.src([src + '**/*.coffee'])
+  return gulp.src(options.scripts.src)
     .pipe(plumber(options.plumber))
     .pipe(coffee())
     .pipe(gulp.dest(dest))
     .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('scripts:build', function() {
-  return gulp.src([src + '**/*.coffee'])
+gulp.task('scripts:publish', function() {
+  return gulp.src(options.scripts.src)
     .pipe(coffee())
     .pipe(gulp.dest(release));
 });
@@ -103,4 +112,6 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('develop', ['markups:develop', 'styles:develop', 'scripts:develop', 'watch', 'server']);
-gulp.task('build', ['clean', 'markups:build', 'styles:build', 'scripts:build']);
+gulp.task('publish', ['clean', 'markups:publish', 'styles:publish', 'scripts:publish'], function(cb) {
+  del(['README.md', './gulpfile.js', './circle.yml', './src', './dist', './node_modules', './handson-front-end'], cb);
+});

@@ -14,12 +14,7 @@ deployment:
       - git branch -D gh-pages
       - git checkout -b gh-pages
       - npm install
-      - npm run build
-      - rm -rf beginner intermediate senir extra
-      - mv prod/* ./
-      - rm _layout.html README.md .gitignore gulpfile.js package.json circle.yml
-      - rm -rf src handson-front-end node_modules prod
-      - ls
+      - npm run publish
       - git add --all .
       - git commit -m "publish gh-pages"
       - git push origin gh-pages -f
