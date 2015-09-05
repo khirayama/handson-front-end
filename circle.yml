@@ -1,20 +1,25 @@
 machine:
   timezone: Asia/Tokyo
 
+checkout:
+  pre:
+    - git config --global user.name "circleci"
+    - git config --global user.email "circleci@feedforce.jp"
+
+dependencies:
+  override:
+    - npm i
+
+test:
+  override:
+    - npm test
+
 deployment:
   master:
     branch: master
     commands:
-      - git config --global user.name "circleci"
-      - git config --global user.email "circleci@feedforce.jp"
-      - git clone git@github.com:khirayama/handson-front-end.git
-      - cd handson-front-end
-      - git checkout -b gh-pages
-      - git checkout master
-      - git branch -D gh-pages
-      - git checkout -b gh-pages
-      - npm install
+      - git checkout -b publish
       - npm run publish
-      - git add --all .
-      - git commit -m "publish gh-pages"
-      - git push origin gh-pages -f
+      - git add --all . && git commit -m "publish gh-pages"
+      - git push origin publish:gh-pages -f
+      - git checkout master && git branch -D publish
