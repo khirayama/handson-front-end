@@ -8,13 +8,11 @@
   "scripts": {
     "start": "gulp develop",
     "build": "gulp build",
-    "test:lint": "coffeelint ./src/**/*.coffee",
-    "test:unit": "mocha --compilers js:espower-babel/guess test/**/*.js",
-    "test": "npm run test:lint && npm run test:unit"
+    "test": "coffeelint ./src/**/*.coffee"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/khirayama/manage"
+    "url": "https://github.com/khirayama/hanson-front-end"
   },
   "author": "Kotaro Hirayama",
   "license": "BSD",
