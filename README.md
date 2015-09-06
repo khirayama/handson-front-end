@@ -41,8 +41,10 @@
 このリポジトリに多くの目的を入れたくはなかったのですが、今、ウェブフロント開発はどのような環境で行われているのかに触れられるように。という願いもあります。  
 これによりバックエンド開発者の方にも、役割が増しているウェブフロントのよりよい開発環境とは何か考えるきっかけになれば幸いです。  
 
-CoffeeScriptについて理解したいのであれば、この資料がお勧めです。[The Little Book on CoffeeScript](http://minghai.github.io/library/coffeescript/index.html)
-CoffeeScriptの記述ルールに関してはこちらを参照ください。[CoffeeScript Coding Style Guide](https://github.com/khirayama/styleguide/blob/master/coffeesctipt.md)
+CoffeeScriptについて理解したいのであれば、この資料がお勧めです。  
+[The Little Book on CoffeeScript](http://minghai.github.io/library/coffeescript/index.html)  
+CoffeeScriptの記述ルールに関してはこちらを参照ください。  
+[CoffeeScript Coding Style Guide](https://github.com/khirayama/styleguide/blob/master/coffeesctipt.md)
 
 ## Get started
 
