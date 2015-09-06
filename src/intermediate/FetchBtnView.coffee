@@ -3,5 +3,6 @@ class @FetchBtnView
     @setEventListeners()
 
   setEventListeners: ->
-    @$el.addEventListener 'click', =>
+    @$el.addEventListener('click', =>
       @model.fetch()
+    )

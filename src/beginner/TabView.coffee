@@ -2,8 +2,8 @@ class @TabView
   index: 0
 
   constructor: (@$el) ->
-    @$btns = @$el.querySelectorAll '.js-tab-btn'
-    @$contents = @$el.querySelectorAll '.js-tab-content'
+    @$btns = @$el.querySelectorAll('.js-tab-btn')
+    @$contents = @$el.querySelectorAll('.js-tab-content')
     @toggleBtn()
     @showContent()
     @setEventListeners()
@@ -12,21 +12,22 @@ class @TabView
     _this = @
     for $btn, i in @$btns
       $btn.dataset.index = i
-      $btn.addEventListener 'click', ->
+      $btn.addEventListener('click', ->
         _this.index = +@dataset.index
         _this.toggleBtn()
         _this.showContent()
+      )
 
   toggleBtn: ->
     for $btn, i in @$btns
       if @index == i
-        $btn.classList.add 'is-active'
+        $btn.classList.add('is-active')
       else
-        $btn.classList.remove 'is-active'
+        $btn.classList.remove('is-active')
 
   showContent: ->
     for $content, i in @$contents
       if @index == i
-        $content.classList.add 'is-active'
+        $content.classList.add('is-active')
       else
-        $content.classList.remove 'is-active'
+        $content.classList.remove('is-active')
