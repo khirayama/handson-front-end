@@ -3,7 +3,7 @@ class MicroModule
 
   export: (module) ->
     if @_modules[module.name]
-      console.warn "#{module.name} is already exsit. overwrite #{module.name}."
+      console.warn("#{module.name} is already exsit. overwrite #{module.name}.")
     @_modules[module.name] = module
 
   import: (name) ->

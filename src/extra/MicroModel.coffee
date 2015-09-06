@@ -1,4 +1,4 @@
-microModule.export class MicroModel
+class MicroModel
   get: (key) ->
     this[key]
 
@@ -13,4 +13,4 @@ microModule.export class MicroModel
     @_events[key] = @_events[key] || []
     @_events[key].push(callback)
 
-
+microModule.export MicroModel
