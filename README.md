@@ -16,6 +16,21 @@
 
 このドキュメントは荒削りな部分があります。様々な方向からのアドバイス（特にPullRequest！）を期待しています。このドキュメントがすべての開発者の力になれることを願います。  
 
+## Index
+
+- [About Hands on Front-end](https://github.com/khirayama/handson-front-end#about-hands-on-front-end--)
+- [Get started](https://github.com/khirayama/handson-front-end#get-started)
+- [Contents](https://github.com/khirayama/handson-front-end#contents)
+  - [BEGINNER | make a simple tab](https://github.com/khirayama/handson-front-end#beginner--make-a-simple-tab)
+  - [INTERMEDIATE | make a sortable table & fetch button](https://github.com/khirayama/handson-front-end#intermediate--make-a-sortable-tabel--fetch-btn)
+  - [SENIR | make a sortable table & a modal for adding an item](https://github.com/khirayama/handson-front-end#senir--make-a-sortable-tabel--a-modal-for-adding-an-item)
+  - [About Lessons(Extra)](https://github.com/khirayama/handson-front-end#about-lessonsextra)
+- [Rules](https://github.com/khirayama/handson-front-end#rules)
+- [About jQuery](https://github.com/khirayama/handson-front-end#about-jquery)
+  - [Recommended jQuery Methods](https://github.com/khirayama/handson-front-end#recommended-jquery-methods)
+  - [Deprecated jQuery Methods](https://github.com/khirayama/handson-front-end#deprecated-jquery-methods)
+- [Feedback](https://github.com/khirayama/handson-front-end#feedback)
+
 ## About Hands on Front-end :-)
 
 このリポジトリはウェブフロント開発において、どう開発すべきか。どう設計すべきか。の一案を示します。他にもよい方法が必ずあります。出会った時にはぜひ声をかけてください。  
@@ -26,7 +41,7 @@
 このリポジトリに多くの目的を入れたくはなかったのですが、今、ウェブフロント開発はどのような環境で行われているのかに触れられるように。という願いもあります。  
 これによりバックエンド開発者の方にも、役割が増しているウェブフロントのよりよい開発環境とは何か考えるきっかけになれば幸いです。  
 
-CoffeeScriptについて理解したいのであれば、この資料がオススメです。[The Little Book on CoffeeScript](http://minghai.github.io/library/coffeescript/index.html)
+CoffeeScriptについて理解したいのであれば、この資料がお勧めです。[The Little Book on CoffeeScript](http://minghai.github.io/library/coffeescript/index.html)
 
 ## Get started
 
@@ -40,10 +55,10 @@ $ npm install
 
 ```
 $ npm start // 開発用環境の立ち上げ
-$ npm run test:lint // CoffeeLintの適用
+$ npm test // CoffeeLintの適用
 ```
 
-```$npm start```を行うとサーバが起動し、ブラウザも立ち上がるはずです。すでに開発可能な状況になっているので、app.scssやCoffeeScriptを変更すると自動的に素早く更新されることを確認してください。  
+```$ npm start```を行うとサーバとブラウザが起動するはずです。すでに開発可能なので、app.scssやCoffeeScriptを変更すると自動的に素早く更新されることを確認してください。  
 
 ```
 --- src: 編集用のディレクトリ
@@ -97,7 +112,7 @@ clickイベントを貼ったので、clickイベントが起こった場合の�
 この手順を元にコードを読み解き、実際に実装してみるとクラスベースでの実装を理解できているはずです。しかし、これだけでは整理された印象を持つだけで、利点を感じることができません。
 Intermediateに進みましょう。
 
-### INTERMEDIATE | make a sortable tabel & fetch btn
+### INTERMEDIATE | make a sortable tabel & fetch button
 ここでは通信を想定したテーブルの作成を行います。さらにこのテーブルはNAME（名前）とAMOUNT（金額）を持っており、それぞれで並び替えを行うことができます。  
 さらに注目してほしいことがあります。データの扱い上、金額にカンマ（,）を入れたくありません。これは以降、文字列で扱わなければならないからです。  
 しかし、ユーザの扱いやすさのうえでは金額にはカンマがあるべきです。そこでこのサンプルではModel（ページの状態）では数字で扱い、View（見た目）の上ではカンマ付きで扱っています。  
@@ -147,6 +162,6 @@ css, animate, click, focus...
 特に現在のJavaScriptの環境では、コンパクトな状態を維持するのはとても重要だと感じます。  
 
 ## Feedback
-issueやwiki、mailにて受け付けています。もちろんRullRequestも。お待ちしております。  
-受託などの場合、CoffeeScriptの使用が限られる場合があります。そのため、筆者ははES5とES6での実装も準備しています。もう少し待ってください。  
+issueやwiki、mailにて受け付けています。もちろんRullRequestもお待ちしております。  
+受託などの場合、CoffeeScriptの使用が限られる場合があります。そのため、筆者はES5とES6での実装も準備しています。もう少し待ってください。  
 英語訳してくださる方も募集していますよ！
