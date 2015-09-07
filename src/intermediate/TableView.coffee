@@ -10,18 +10,16 @@ class @TableView
     @setEventListeners()
 
   setEventListeners: ->
-    _this = @
-
     @model.onChange('data', =>
       @data = @model.get('data')
       @render()
     )
 
     for $sortBtn in @$sortBtns
-      $sortBtn.addEventListener('click', ->
-        sortkey = @dataset.sortkey
-        _this._sortByKey sortkey
-        _this.render()
+      $sortBtn.addEventListener('click', (event) =>
+        sortkey = event.target.dataset.sortkey
+        @_sortByKey(sortkey)
+        @render()
       )
 
   addComma: (num) ->
@@ -31,8 +29,8 @@ class @TableView
     "<tr><td>#{data.name}</td><td>#{@addComma(data.amount)}</td></tr>"
 
   _sortByKey: (key) ->
-    @reverse = !@reverse
-    @data.sort (a, b) =>
+    @reverse = not @reverse
+    @data.sort((a, b) =>
       x = a[key]
       y = b[key]
 
@@ -48,6 +46,7 @@ class @TableView
         if x < y
           return 1
         return 0
+    )
 
   render: ->
     tableEl = []

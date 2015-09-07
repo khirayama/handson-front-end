@@ -14,7 +14,7 @@ class MicroView
     else if @_isDOM($el)
       $el.addEventListener(eventType, callback)
     else if @_isSelector($el)
-      _$el = @$el.querySelectorAll $el
+      _$el = @$el.querySelectorAll($el)
       @on(_$el, eventType, callback)
 
   addClass: ($el, className) ->
@@ -24,7 +24,7 @@ class MicroView
     else if @_isDOM($el)
       $el.classList.add(className)
     else if @_isSelector($el)
-      _$el = @$el.querySelectorAll $el
+      _$el = @$el.querySelectorAll($el)
       @addClass(_$el, className)
 
   removeClass: ($el, className) ->
@@ -34,19 +34,19 @@ class MicroView
     else if @_isDOM($el)
       $el.classList.remove(className)
     else if @_isSelector($el)
-      _$el = @$el.querySelectorAll $el
+      _$el = @$el.querySelectorAll($el)
       @addClass(_$el, className)
 
   _isDOMCollection: ($el) ->
-    if typeof $el == 'object' && $el.length
+    if typeof $el is 'object' and $el.length
       return true
     return false
   _isDOM: ($el) ->
-    if typeof $el == 'object' && !$el.length
+    if typeof $el is 'object' and not $el.length
       return true
     return false
   _isSelector: ($el) ->
-    if typeof $el == 'string'
+    if typeof $el is 'string'
       return true
     return false
 

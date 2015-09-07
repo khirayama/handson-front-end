@@ -1,17 +1,16 @@
 MicroModel = microModule.import('MicroModel')
 
 class IntermediateModel extends MicroModel
-  _events: {}
   data: []
 
   constructor: ->
     @fetch()
 
   fetch: ->
-    setTimeout =>
+    setTimeout( =>
       res = @genData()
       @set('data', res)
-    , 300
+    , 300)
 
   genData: ->
     allData = [
@@ -27,8 +26,9 @@ class IntermediateModel extends MicroModel
       { name: 'JJJ', amount: 5000 }
       { name: 'KKK', amount: 10000 }
     ]
-    allData.sort (x, y) ->
+    allData.sort((x, y) ->
       Math.random() - Math.random()
+    )
     allData[0...5]
 
 microModule.export(IntermediateModel)

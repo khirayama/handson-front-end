@@ -9,25 +9,24 @@ class @TabView
     @setEventListeners()
 
   setEventListeners: ->
-    _this = @
     for $btn, i in @$btns
       $btn.dataset.index = i
-      $btn.addEventListener('click', ->
-        _this.index = +@dataset.index
-        _this.toggleBtn()
-        _this.showContent()
+      $btn.addEventListener('click', (event) =>
+        @index = +event.target.dataset.index
+        @.toggleBtn()
+        @.showContent()
       )
 
   toggleBtn: ->
     for $btn, i in @$btns
-      if @index == i
+      if @index is i
         $btn.classList.add('is-active')
       else
         $btn.classList.remove('is-active')
 
   showContent: ->
     for $content, i in @$contents
-      if @index == i
+      if @index is i
         $content.classList.add('is-active')
       else
         $content.classList.remove('is-active')

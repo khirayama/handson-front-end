@@ -8,7 +8,7 @@
   "scripts": {
     "start": "gulp develop",
     "publish": "gulp publish",
-    "test": "coffeelint ./src/**/*.coffee"
+    "test": "coffeelint ./src/**/*.coffee ./src/extra/**/*.coffee"
   },
   "repository": {
     "type": "git",

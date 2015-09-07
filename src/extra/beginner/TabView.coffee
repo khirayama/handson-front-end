@@ -15,24 +15,22 @@ class TabView extends MicroView
     @showContent()
 
   setEventListeners: ->
-    _this = @
-
-    @on(@$btns, 'click', ->
-      _this.index = +@dataset.index
-      _this.toggleBtn()
-      _this.showContent()
+    @on(@$btns, 'click', (event) =>
+      @index = +event.target.dataset.index
+      @toggleBtn()
+      @showContent()
     )
 
   toggleBtn: ->
     for $btn, i in @$btns
-      if @index == i
+      if @index is i
         @addClass($btn, 'is-active')
       else
         @removeClass($btn, 'is-active')
 
   showContent: ->
     for $content, i in @$contents
-      if @index == i
+      if @index is i
         @addClass($content, 'is-active')
       else
         @removeClass($content, 'is-active')

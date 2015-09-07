@@ -14,17 +14,15 @@ class TableView extends MicroView
     @render()
 
   setEventListeners: ->
-    _this = @
-
     @model.onChange('data', =>
       @data = @model.get('data')
       @render()
     )
 
-    @on(@$sortBtns, 'click', ->
-      sortkey = @dataset.sortkey
-      _this._sortByKey(sortkey)
-      _this.render()
+    @on(@$sortBtns, 'click', (event) =>
+      sortkey = event.target.dataset.sortkey
+      @_sortByKey(sortkey)
+      @render()
     )
 
   addComma: (num) ->
@@ -34,8 +32,8 @@ class TableView extends MicroView
     "<tr><td>#{data.name}</td><td>#{@addComma(data.amount)}</td></tr>"
 
   _sortByKey: (key) ->
-    @reverse = !@reverse
-    @data.sort (a, b) =>
+    @reverse = not @reverse
+    @data.sort((a, b) =>
       x = a[key]
       y = b[key]
 
@@ -51,12 +49,13 @@ class TableView extends MicroView
         if x < y
           return 1
         return 0
+    )
 
   render: ->
     tableEl = []
 
     for data in @data
-      tableEl.push(@template data)
+      tableEl.push(@template(data))
 
     @$tbody.innerHTML = tableEl.join('')
 

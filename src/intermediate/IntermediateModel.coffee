@@ -6,24 +6,24 @@ class @IntermediateModel
     @fetch()
 
   get: (key) ->
-    this[key]
+    @[key]
 
   set: (key, value, silent) ->
-    this[key] = value
-    if !@_events[key] || silent
+    @[key] = value
+    if not @_events[key] or silent
       return
     for callback in @_events[key]
       (callback)()
 
   onChange: (key, callback) ->
-    @_events[key] = @_events[key] || []
+    @_events[key] = @_events[key] or []
     @_events[key].push(callback)
 
   fetch: ->
-    setTimeout =>
+    setTimeout( =>
       res = @genData()
       @set('data', res)
-    , 300
+    , 300)
 
   genData: ->
     allData = [
@@ -39,6 +39,7 @@ class @IntermediateModel
       { name: 'JJJ', amount: 5000 }
       { name: 'KKK', amount: 10000 }
     ]
-    allData.sort (x, y) ->
+    allData.sort((x, y) ->
       Math.random() - Math.random()
+    )
     allData[0...5]
