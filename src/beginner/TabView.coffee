@@ -13,8 +13,8 @@ class @TabView
       $btn.dataset.index = i
       $btn.addEventListener('click', (event) =>
         _index = +event.target.dataset.index
-        @.toggleBtn()
-        @.showContent()
+        @toggleBtn()
+        @showContent()
       )
 
   toggleBtn: ->
