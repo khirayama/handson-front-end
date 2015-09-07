@@ -1,12 +1,12 @@
 class MicroModule
-  _modules: {}
+  _modules = {}
 
   export: (module) ->
-    if @_modules[module.name]
+    if _modules[module.name]
       console.warn("#{module.name} is already exsits. overwrite #{module.name}.")
-    @_modules[module.name] = module
+    _modules[module.name] = module
 
   import: (name) ->
-    @_modules[name]
+    _modules[name]
 
 window.microModule = new MicroModule
