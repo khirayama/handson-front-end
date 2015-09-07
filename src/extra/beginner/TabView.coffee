@@ -1,7 +1,7 @@
 MicroView = microModule.import('MicroView')
 
 class TabView extends MicroView
-  index: 0
+  _index = 0
 
   constructor:  (@$el) ->
     @$btns = @$el.querySelectorAll('.js-tab-btn')
@@ -16,21 +16,21 @@ class TabView extends MicroView
 
   setEventListeners: ->
     @on(@$btns, 'click', (event) =>
-      @index = +event.target.dataset.index
+      _index = +event.target.dataset.index
       @toggleBtn()
       @showContent()
     )
 
   toggleBtn: ->
     for $btn, i in @$btns
-      if @index is i
+      if _index is i
         @addClass($btn, 'is-active')
       else
         @removeClass($btn, 'is-active')
 
   showContent: ->
     for $content, i in @$contents
-      if @index is i
+      if _index is i
         @addClass($content, 'is-active')
       else
         @removeClass($content, 'is-active')
