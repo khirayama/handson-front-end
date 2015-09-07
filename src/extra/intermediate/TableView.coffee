@@ -1,11 +1,11 @@
 MicroView = microModule.import('MicroView')
 
 class TableView extends MicroView
-  data: []
-  reverse: false
+  _data = []
+  _reverse = false
 
   constructor: (@model, @$el) ->
-    @data = @model.get('data')
+    _data = @model.get('data')
     @$tbody = @$el.querySelector('.js-tbody')
     @$sortBtns = @$el.querySelectorAll('.js-btn-sort')
     super()
@@ -15,7 +15,7 @@ class TableView extends MicroView
 
   setEventListeners: ->
     @model.onChange('data', =>
-      @data = @model.get('data')
+      _data = @model.get('data')
       @render()
     )
 
@@ -32,12 +32,12 @@ class TableView extends MicroView
     "<tr><td>#{data.name}</td><td>#{@addComma(data.amount)}</td></tr>"
 
   _sortByKey: (key) ->
-    @reverse = not @reverse
-    @data.sort((a, b) =>
+    _reverse = not _reverse
+    _data.sort((a, b) ->
       x = a[key]
       y = b[key]
 
-      if @reverse
+      if _reverse
         if x > y
           return 1
         if x < y
@@ -54,7 +54,7 @@ class TableView extends MicroView
   render: ->
     tableEl = []
 
-    for data in @data
+    for data in _data
       tableEl.push(@template(data))
 
     @$tbody.innerHTML = tableEl.join('')
