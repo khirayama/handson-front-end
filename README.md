@@ -23,7 +23,7 @@
 - [Contents](https://github.com/khirayama/handson-front-end#contents)
   - [BEGINNER | make a simple tab](https://github.com/khirayama/handson-front-end#beginner--make-a-simple-tab)
   - [INTERMEDIATE | make a sortable table & fetch button](https://github.com/khirayama/handson-front-end#intermediate--make-a-sortable-tabel--fetch-btn)
-  - [SENIR | make a sortable table & a modal for adding an item](https://github.com/khirayama/handson-front-end#senir--make-a-sortable-tabel--a-modal-for-adding-an-item)
+  - [SENIOR | make a sortable table & a modal for adding an item](https://github.com/khirayama/handson-front-end#senior--make-a-sortable-tabel--a-modal-for-adding-an-item)
   - [About Lessons(Extra)](https://github.com/khirayama/handson-front-end#about-lessonsextra)
 - [Rules](https://github.com/khirayama/handson-front-end#rules)
 - [About jQuery](https://github.com/khirayama/handson-front-end#about-jquery)
@@ -121,7 +121,7 @@ Intermediateに進みましょう。
 しかし、ユーザの扱いやすさのうえでは金額にはカンマがあるべきです。そこでこのサンプルではModel（ページの状態）では数字で扱い、View（見た目）の上ではカンマ付きで扱っています。  
 これはrequestを送る場合などでも役立つものです。習得することをお勧めします。  
 
-### SENIR | make a sortable tabel & a modal for adding an item
+### SENIOR | make a sortable tabel & a modal for adding an item
 ここではクラスの再利用と、Ruby on Railsを想定したアイテムの追加を行います。各クラスのインスタンスがページに唯一あるモデルインスタンスを監視し、変更に応じて自律した動きを行います。  
 
 ### About Lessons(Extra)
@@ -165,6 +165,6 @@ css, animate, click, focus...
 特に現在のJavaScriptの環境では、コンパクトな状態を維持するのはとても重要だと感じます。  
 
 ## Feedback
-issueやwiki、mailにて受け付けています。もちろんRullRequestもお待ちしております。  
+issueやwiki、mailにて受け付けています。もちろんPullRequestもお待ちしております。
 受託などの場合、CoffeeScriptの使用が限られる場合があります。そのため、筆者はES5とES6での実装も準備しています。もう少し待ってください。  
 英語訳してくださる方も募集していますよ！
