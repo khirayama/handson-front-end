@@ -1,15 +1,15 @@
-extends ../_layout
+extends ../../_layout
 block title
   title #{lessons[2].name} | #{lessons[2].description}
 block style
-  link(rel="stylesheet" href="../app.css")
+  link(rel="stylesheet" href="../../app.css")
 block header
   h1
     | #{lessons[2].name} :-)
     br
     | #{lessons[2].description}
 block content
-  .page-senir
+  .page-senior
     table.table.js-table
       thead
         th.btn-sort.js-btn-sort(data-sortkey="name") NAME
@@ -17,7 +17,7 @@ block content
       tbody.tbody.js-tbody
     .btn.js-btn-add-item ADD AN ITEM
   .btn-to-index
-    a(href="../") > INDEX
+    a(href="../../") > INDEX
 block other
   .modal.js-modal-add-item
     .modal-background
@@ -32,7 +32,10 @@ block other
             input.js-input-add-item-amount(type="number" placeholder="AMOUNT")
         .btn.js-btn-add-item-submit ADD ITEM!
 block scripts
-  script(src="SenirModel.js")
+  script(src="../MicroModule.js")
+  script(src="../MicroModel.js")
+  script(src="../MicroView.js")
+  script(src="SeniorModel.js")
   script(src="../intermediate/TableView.js")
   script(src="AddItemBtnView.js")
   script(src="AddItemModalView.js")

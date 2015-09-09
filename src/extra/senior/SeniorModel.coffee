@@ -1,6 +1,6 @@
 MicroModel = microModule.import('MicroModel')
 
-class SenirModel extends MicroModel
+class SeniorModel extends MicroModel
   isShowModal: false
   data: [
     { name: 'AAA', amount: 2000 }
@@ -12,4 +12,4 @@ class SenirModel extends MicroModel
     @data.push(item)
     @set('data', @data)
 
-microModule.export(SenirModel)
+microModule.export(SeniorModel)

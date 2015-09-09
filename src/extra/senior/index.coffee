@@ -1,4 +1,4 @@
-SenirModel = microModule.import('SenirModel')
+SeniorModel = microModule.import('SeniorModel')
 TableView = microModule.import('TableView')
 AddItemBtnView = microModule.import('AddItemBtnView')
 AddItemModalView = microModule.import('AddItemModalView')
@@ -8,7 +8,7 @@ do ->
   $addItemBtns = document.querySelectorAll('.js-btn-add-item')
   $addItemModals = document.querySelectorAll('.js-modal-add-item')
 
-  model = new SenirModel()
+  model = new SeniorModel()
 
   for $table in $tables
     new TableView(model, $table)

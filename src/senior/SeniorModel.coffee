@@ -1,4 +1,4 @@
-class @SenirModel
+class @SeniorModel
   _events: {}
   isShowModal: false
   data: [
