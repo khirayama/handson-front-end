@@ -1,7 +1,7 @@
 MicroView = microModule.import('MicroView')
 
 class FetchBtnView extends MicroView
-  constructor: (@model, @$el) ->
+  constructor: (@$el, @model) ->
     super()
 
   setEventListeners: ->

@@ -1,18 +1,16 @@
+MicroView = microModule.import('MicroView')
 SeniorModel = microModule.import('SeniorModel')
 TableView = microModule.import('TableView')
 AddItemBtnView = microModule.import('AddItemBtnView')
 AddItemModalView = microModule.import('AddItemModalView')
 
 do ->
-  $tables = document.querySelectorAll('.js-table')
-  $addItemBtns = document.querySelectorAll('.js-btn-add-item')
-  $addItemModals = document.querySelectorAll('.js-modal-add-item')
+  $tables = MicroView.find('.js-table')
+  $addItemBtns = MicroView.find('.js-btn-add-item')
+  $addItemModals = MicroView.find('.js-modal-add-item')
 
   model = new SeniorModel()
 
-  for $table in $tables
-    new TableView(model, $table)
-  for $addItemBtn in $addItemBtns
-    new AddItemBtnView(model, $addItemBtn)
-  for $addItemModal in $addItemModals
-    new AddItemModalView(model, $addItemModal)
+  MicroView.render(TableView, $tables, [model])
+  MicroView.render(AddItemBtnView, $addItemBtns, [model])
+  MicroView.render(AddItemModalView, $addItemModals, [model])

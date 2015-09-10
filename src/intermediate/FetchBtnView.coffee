@@ -1,5 +1,5 @@
 class @FetchBtnView
-  constructor: (@model, @$el) ->
+  constructor: (@$el, @model) ->
     @setEventListeners()
 
   setEventListeners: ->

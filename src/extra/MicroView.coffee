@@ -16,10 +16,10 @@ class MicroView
 
     if @::_isDOMCollection($el)
       for _$el in $el
-        args.push(_$el)
+        args.splice(0, 0, _$el)
         new createClass(args)
     else if @::_isDOM($el)
-      args.push($el)
+      args.splice(0, 0, $el)
       new createClass($args)
     else if @::_isSelector($el)
       _$el = @find($el)

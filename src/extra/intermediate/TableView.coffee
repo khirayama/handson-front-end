@@ -4,7 +4,7 @@ class TableView extends MicroView
   _data = []
   _reverse = false
 
-  constructor: (@model, @$el) ->
+  constructor: (@$el, @model) ->
     _data = @model.get('data')
     @$tbody = @find('.js-tbody')
     @$sortBtns = @find('.js-btn-sort')

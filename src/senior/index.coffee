@@ -6,8 +6,8 @@ do ->
   model = new SeniorModel()
 
   for $table in $tables
-    new TableView(model, $table)
+    new TableView($table, model)
   for $addItemBtn in $addItemBtns
-    new AddItemBtnView(model, $addItemBtn)
+    new AddItemBtnView($addItemBtn, model)
   for $addItemModal in $addItemModals
-    new AddItemModalView(model, $addItemModal)
+    new AddItemModalView($addItemModal, model)

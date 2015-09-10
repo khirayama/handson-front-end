@@ -5,6 +5,6 @@ do ->
   model = new IntermediateModel()
 
   for $table in $tables
-    new TableView(model, $table)
+    new TableView($table, model)
   for $fetchBtn in $fetchBtns
-    new FetchBtnView(model, $fetchBtn)
+    new FetchBtnView($fetchBtn, model)

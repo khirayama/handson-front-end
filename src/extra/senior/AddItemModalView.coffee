@@ -1,7 +1,7 @@
 MicroView = microModule.import('MicroView')
 
 class AddItemModalView extends MicroView
-  constructor: (@model, @$el) ->
+  constructor: (@$el, @model) ->
     @$addItemSubmitBtn = @find('.js-btn-add-item-submit')
     @$itemNameInput = @find('.js-input-add-item-name')
     @$itemAmountInput = @find('.js-input-add-item-amount')

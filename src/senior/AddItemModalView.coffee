@@ -1,5 +1,5 @@
 class @AddItemModalView
-  constructor: (@model, @$el) ->
+  constructor: (@$el, @model) ->
     @$addItemSubmitBtn = @$el.querySelector('.js-btn-add-item-submit')
     @$itemNameInput = @$el.querySelector('.js-input-add-item-name')
     @$itemAmountInput = @$el.querySelector('.js-input-add-item-amount')

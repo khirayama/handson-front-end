@@ -1,5 +1,5 @@
 class @AddItemBtnView
-  constructor: (@model, @$el) ->
+  constructor: (@$el, @model) ->
     @setEventListeners()
 
   setEventListeners: ->
