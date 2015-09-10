@@ -1,6 +1,6 @@
 # Hands on Front-end :-) with CoffeeScript
-[[WEBSITE] Hands on Front-end :-) with CoffeeScript](http://khirayama.github.io/handson-front-end/)
-[[CODEPEN] BEGINNER](http://codepen.io/anon/pen/qOOEQa)
+[[WEBSITE] Hands on Front-end :-) with CoffeeScript](http://khirayama.github.io/handson-front-end/)  
+[[CODEPEN] BEGINNER](http://codepen.io/anon/pen/qOOEQa)  
 [[CODEPEN] INTERMEDIATE](http://codepen.io/anon/pen/zvvxev)
 
 対象:
