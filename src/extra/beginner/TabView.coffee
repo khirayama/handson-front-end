@@ -4,8 +4,8 @@ class TabView extends MicroView
   _index = 0
 
   constructor:  (@$el) ->
-    @$btns = @$el.querySelectorAll('.js-tab-btn')
-    @$contents = @$el.querySelectorAll('.js-tab-content')
+    @$btns = @find('.js-tab-btn')
+    @$contents = @find('.js-tab-content')
     super()
 
   init: ->
@@ -16,7 +16,7 @@ class TabView extends MicroView
 
   setEventListeners: ->
     @on(@$btns, 'click', (event) =>
-      _index = +event.target.dataset.index
+      _index = +@data(event.target, 'index')
       @toggleBtn()
       @showContent()
     )

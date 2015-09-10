@@ -2,9 +2,9 @@ MicroView = microModule.import('MicroView')
 
 class AddItemModalView extends MicroView
   constructor: (@model, @$el) ->
-    @$addItemSubmitBtn = @$el.querySelector('.js-btn-add-item-submit')
-    @$itemNameInput = @$el.querySelector('.js-input-add-item-name')
-    @$itemAmountInput = @$el.querySelector('.js-input-add-item-amount')
+    @$addItemSubmitBtn = @find('.js-btn-add-item-submit')
+    @$itemNameInput = @find('.js-input-add-item-name')
+    @$itemAmountInput = @find('.js-input-add-item-amount')
     super()
 
   setEventListeners: ->
@@ -28,8 +28,8 @@ class AddItemModalView extends MicroView
     @removeClass(@$el, 'is-open')
 
   addItem: ->
-    _name = @$itemNameInput.value
-    _amount = @$itemAmountInput.value
+    _name = @value(@$itemNameInput)
+    _amount = @value(@$itemAmountInput)
     item = { name: _name, amount: _amount }
     @model.addData(item)
     @model.set('isShowModal', false)

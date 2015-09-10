@@ -6,8 +6,8 @@ class TableView extends MicroView
 
   constructor: (@model, @$el) ->
     _data = @model.get('data')
-    @$tbody = @$el.querySelector('.js-tbody')
-    @$sortBtns = @$el.querySelectorAll('.js-btn-sort')
+    @$tbody = @find('.js-tbody')
+    @$sortBtns = @find('.js-btn-sort')
     super()
 
   init: ->
@@ -20,7 +20,7 @@ class TableView extends MicroView
     )
 
     @on(@$sortBtns, 'click', (event) =>
-      sortkey = event.target.dataset.sortkey
+      sortkey = @data(event.target, 'sortkey')
       @_sortByKey(sortkey)
       @render()
     )
@@ -57,6 +57,6 @@ class TableView extends MicroView
     for data in _data
       tableEl.push(@template(data))
 
-    @$tbody.innerHTML = tableEl.join('')
+    @html(@$tbody, tableEl.join(''))
 
 microModule.export(TableView)
