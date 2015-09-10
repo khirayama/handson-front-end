@@ -1,3 +1,4 @@
+# coffeelint: disable=missing_fat_arrows
 class MicroView
   constructor: ->
     @init()
