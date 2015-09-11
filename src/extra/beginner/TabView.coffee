@@ -15,8 +15,8 @@ class TabView extends MicroView
     @showContent()
 
   setEventListeners: ->
-    @on(@$btns, 'click', (event) =>
-      _index = +@data(event.target, 'index')
+    @on(@$btns, 'click', (e) =>
+      _index = +@data(e.target, 'index')
       @toggleBtn()
       @showContent()
     )

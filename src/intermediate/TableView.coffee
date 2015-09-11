@@ -16,8 +16,8 @@ class @TableView
     )
 
     for $sortBtn in @$sortBtns
-      $sortBtn.addEventListener('click', (event) =>
-        sortkey = event.target.dataset.sortkey
+      $sortBtn.addEventListener('click', (e) =>
+        sortkey = e.target.dataset.sortkey
         @_sortByKey(sortkey)
         @render()
       )

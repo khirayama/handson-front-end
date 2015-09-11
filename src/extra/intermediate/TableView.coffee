@@ -19,8 +19,8 @@ class TableView extends MicroView
       @render()
     )
 
-    @on(@$sortBtns, 'click', (event) =>
-      sortkey = @data(event.target, 'sortkey')
+    @on(@$sortBtns, 'click', (e) =>
+      sortkey = @data(e.target, 'sortkey')
       @_sortByKey(sortkey)
       @render()
     )
