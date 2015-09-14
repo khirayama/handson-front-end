@@ -6,13 +6,11 @@ class TabView extends MicroView
   constructor:  (@$el) ->
     @$btns = @find('.js-tab-btn')
     @$contents = @find('.js-tab-content')
-    super()
-
-  init: ->
     for $btn, i in @$btns
       $btn.dataset.index = i
     @toggleBtn()
     @showContent()
+    super()
 
   setEventListeners: ->
     @on(@$btns, 'click', (e) =>

@@ -1,10 +1,7 @@
 # coffeelint: disable=missing_fat_arrows
 class MicroView
   constructor: ->
-    @init()
     @setEventListeners()
-
-  init: ->
 
   setEventListeners: ->
 
@@ -103,4 +100,8 @@ class MicroView
       return true
     return false
 
-microModule.export(MicroView)
+if microModule
+  microModule.export(MicroView)
+else
+  window.Micro = Micro or {}
+  window.Micro.View = MicroView

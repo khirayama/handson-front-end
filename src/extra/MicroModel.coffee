@@ -15,4 +15,8 @@ class MicroModel
     _events[key] = _events[key] or []
     _events[key].push(callback)
 
-microModule.export(MicroModel)
+if microModule
+  microModule.export(MicroModel)
+else
+  window.Micro = Micro or {}
+  window.Micro.Model = MicroModel

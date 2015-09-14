@@ -8,10 +8,8 @@ class TableView extends MicroView
     _data = @model.get('data')
     @$tbody = @find('.js-tbody')
     @$sortBtns = @find('.js-btn-sort')
-    super()
-
-  init: ->
     @render()
+    super()
 
   setEventListeners: ->
     @model.onChange('data', =>
