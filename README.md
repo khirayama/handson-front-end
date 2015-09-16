@@ -143,11 +143,14 @@ CoffeeScriptにおいては別ファイルからクラスを使用しようと�
 ここから様々なフレームワークに出会い、よりよいサービス、環境になればと思います。相談があれば、issueやwiki、mailでも構いません。声をかけてください。  
 
 ## Rules
+- コーディング規約は以下に従います。  
+[CoffeeScript Coding Style Guide](https://github.com/khirayama/styleguide/blob/master/coffeesctipt.md)
+
 - JavaScriptでDOMにアクセスするときには、DOMにjs-プレフィックスのクラスを付与しましょう。jsでアクセスするDOMがわかりやすくなるととともに装飾を担うクラスとの責任を分けやすくします
 - またクラスの付け替えで見た目を変更する場合、この限りではありません。このサンプルではis-プレフィックスを用いています
 - 見た目を変更する場合は、JavaScriptでcssを変更するのではなく、クラスの付け替えで行ってください。装飾はCSSが担うべき役割です。アニメーションも可能な限りtransitionなどを利用してください
 - eventオブジェクトの名前は、eとしてください```(e) => some.action(e.target)```
-- イベントを結びつけるメソッドはsetEventListenersで統一してください
+- イベントを結びつけるメソッドはsetEventListenersで統一してください。統一することでチーム開発を円滑にできます。
 - そのページの起点となるファイルはindex.coffee、show.coffeeのようにRailsの規約に則り、各クラスごとに分割してください
 - Viewクラスのクラス名、ファイル名はSomeViewのように末尾はViewとしてください
 

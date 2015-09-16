@@ -11,11 +11,10 @@ class @TabView
   setEventListeners: ->
     for $btn, i in @$btns
       $btn.dataset.index = i
-      $btn.addEventListener('click', (e) =>
+      $btn.addEventListener 'click', (e) =>
         _index = +e.target.dataset.index
         @toggleBtn()
         @showContent()
-      )
 
   toggleBtn: ->
     for $btn, i in @$btns
