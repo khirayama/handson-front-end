@@ -3,6 +3,5 @@ class @AddItemBtnView
     @setEventListeners()
 
   setEventListeners: ->
-    @$el.addEventListener('click', =>
+    @$el.addEventListener 'click', =>
       @model.set('isShowModal', true)
-    )

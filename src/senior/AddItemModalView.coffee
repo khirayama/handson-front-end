@@ -6,17 +6,15 @@ class @AddItemModalView
     @setEventListeners()
 
   setEventListeners: ->
-    @model.onChange('isShowModal', =>
+    @model.onChange 'isShowModal', =>
       isShowModal = @model.get('isShowModal')
       if isShowModal
         @show()
       else
         @hide()
-    )
 
-    @$addItemSubmitBtn.addEventListener('click', =>
+    @$addItemSubmitBtn.addEventListener 'click', =>
       @addItem()
-    )
 
   show: ->
     @$el.classList.add('is-open')
