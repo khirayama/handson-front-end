@@ -8,21 +8,25 @@ class @IntermediateModel
   get: (key) ->
     @[key]
 
-  set: (key, value, silent) ->
+  set: (key, value) ->
     @[key] = value
-    if not @_events[key] or silent
-      return
-    for callback in @_events[key]
-      (callback)()
+
+  on: (eventName, callback) ->
+    @_events[eventName] = @_events[eventName] or []
+    @_events[eventName].push(callback)
 
   onChange: (key, callback) ->
-    @_events[key] = @_events[key] or []
-    @_events[key].push(callback)
+    @on('change_' + key, callback)
+
+  emit: (eventName) ->
+    for callback in @_events[eventName]
+      callback()
 
   fetch: ->
     setTimeout( =>
       res = @genData()
       @set('data', res)
+      @emit('change_data')
     , 300)
 
   genData: ->
