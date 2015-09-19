@@ -8,7 +8,7 @@
 対象:
 
 - よりよいフロント開発を望む開発者（特にRuby on Rails）
-- JavaScript、CoffeeScriptの読み書きを行える開発者
+- JavaScript、CoffeeScriptの読み書きを行える開発者（Ruby on Railsの知識は不要です）
 - ウェブフロントに興味のあるiOS、Android開発者
 
 フロントエンドでは一般的にGUIが用いられています。特にウェブではJavaScriptとHTML、CSSを用いて行います。  
