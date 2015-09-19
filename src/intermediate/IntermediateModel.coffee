@@ -1,23 +1,22 @@
 class @IntermediateModel
-  _events = {}
-  data = []
-
   constructor: ->
+    @_events = {}
+    @data = []
     @fetch()
 
   getData: ->
-    data
+    @data
 
   setData: (value) ->
-    data = value
+    @data = value
 
   emit: (eventName) ->
-    for callback in _events[eventName]
+    for callback in @_events[eventName]
       callback()
 
   onChangeData: (callback) ->
-    _events['change_data'] = _events['change_data'] or []
-    _events['change_data'].push(callback)
+    @_events['change_data'] = @_events['change_data'] or []
+    @_events['change_data'].push(callback)
 
   fetch: ->
     # suppose ajax
