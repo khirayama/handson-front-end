@@ -6,9 +6,9 @@ class @AddItemModalView
     @setEventListeners()
 
   setEventListeners: ->
-    @model.onChangeIsShowModal =>
-      isShowModal = @model.getIsShowModal()
-      if isShowModal
+    @model.onChangeIsModalShowing =>
+      isModalShowing = @model.getIsModalShowing()
+      if isModalShowing
         @show()
       else
         @hide()
@@ -27,4 +27,4 @@ class @AddItemModalView
     amount = @$itemAmountInput.value
     item = { name: name, amount: amount }
     @model.addData(item)
-    @model.toggleIsShowModal()
+    @model.toggleIsModalShowing()

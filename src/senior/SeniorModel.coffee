@@ -1,7 +1,7 @@
 class @SeniorModel
   constructor: ->
     @_events = {}
-    @_isShowModal = false
+    @_isModalShowing = false
     @_data = [
       { name: 'AAA', amount: 2000 }
       { name: 'BBB', amount: 10 }
@@ -14,12 +14,12 @@ class @SeniorModel
   setData: (value) ->
     @_data = value
 
-  getIsShowModal: ->
-    @_isShowModal
+  getIsModalShowing: ->
+    @_isModalShowing
 
-  toggleIsShowModal: ->
-    @_isShowModal = !@_isShowModal
-    @emit('change_isShowModal')
+  toggleIsModalShowing: ->
+    @_isModalShowing = !@_isModalShowing
+    @emit('change_isModalShowing')
 
   emit: (eventName) ->
     for callback in @_events[eventName]
@@ -29,11 +29,10 @@ class @SeniorModel
     @_events['change_data'] = @_events['change_data'] or []
     @_events['change_data'].push(callback)
 
-  onChangeIsShowModal: (callback) ->
-    @_events['change_isShowModal'] = @_events['change_isShowModal'] or []
-    @_events['change_isShowModal'].push(callback)
+  onChangeIsModalShowing: (callback) ->
+    @_events['change_isModalShowing'] = @_events['change_isModalShowing'] or []
+    @_events['change_isModalShowing'].push(callback)
 
   addData: (item) ->
     @_data.push(item)
-    @setData(@_data)
     @emit('change_data')
