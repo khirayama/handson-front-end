@@ -24,4 +24,3 @@ class @SeniorModel
   addData: (item) ->
     @data.push(item)
     @set('data',  @data)
-
