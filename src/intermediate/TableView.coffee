@@ -1,9 +1,7 @@
 class @TableView
-  _data: []
-  _reverse: false
-
   constructor: (@$el, @model) ->
     @_data = @model.getData()
+    @reverse = false
     @$tbody = @$el.querySelector('.js-tbody')
     @$sortBtns = @$el.querySelectorAll('.js-btn-sort')
     @render()
