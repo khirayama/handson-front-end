@@ -1,14 +1,14 @@
 class @IntermediateModel
   constructor: ->
     @_events = {}
-    @data = []
+    @_data = []
     @fetch()
 
   getData: ->
-    @data
+    @_data
 
   setData: (value) ->
-    @data = value
+    @_data = value
 
   emit: (eventName) ->
     for callback in @_events[eventName]
