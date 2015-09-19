@@ -3,15 +3,15 @@ class @TableView
   _reverse: false
 
   constructor: (@$el, @model) ->
-    @_data = @model.get('data')
+    @_data = @model.getData()
     @$tbody = @$el.querySelector('.js-tbody')
     @$sortBtns = @$el.querySelectorAll('.js-btn-sort')
     @render()
     @setEventListeners()
 
   setEventListeners: ->
-    @model.onChange 'data', =>
-      @_data = @model.get('data')
+    @model.onChangeData =>
+      @_data = @model.getData()
       @render()
 
     for $sortBtn in @$sortBtns
