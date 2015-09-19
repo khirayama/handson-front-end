@@ -23,8 +23,8 @@ class @AddItemModalView
     @$el.classList.remove('is-open')
 
   addItem: ->
-    _name = @$itemNameInput.value
-    _amount = @$itemAmountInput.value
-    item = { name: _name, amount: _amount }
+    name = @$itemNameInput.value
+    amount = @$itemAmountInput.value
+    item = { name: name, amount: amount }
     @model.addData(item)
     @model.toggleIsShowModal()
