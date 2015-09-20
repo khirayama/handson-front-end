@@ -8,18 +8,16 @@ class AddItemModalView extends MicroView
     super()
 
   setEventListeners: ->
-    @model.onChange('isShowModal', =>
+    @model.onChange 'isShowModal', =>
       isShowModal = @model.get('isShowModal')
 
       if isShowModal
         @show()
       else
         @hide()
-    )
 
-    @on(@$addItemSubmitBtn, 'click', =>
+    @on @$addItemSubmitBtn, 'click', =>
       @addItem()
-    )
 
   show: ->
     @addClass(@$el, 'is-open')
@@ -28,9 +26,9 @@ class AddItemModalView extends MicroView
     @removeClass(@$el, 'is-open')
 
   addItem: ->
-    _name = @value(@$itemNameInput)
-    _amount = @value(@$itemAmountInput)
-    item = { name: _name, amount: _amount }
+    name = @value(@$itemNameInput)
+    amount = @value(@$itemAmountInput)
+    item = { name: name, amount: amount }
     @model.addData(item)
     @model.set('isShowModal', false)
 
