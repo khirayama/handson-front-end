@@ -26,11 +26,11 @@ class @SeniorModel
       callback()
 
   onChangeData: (callback) ->
-    @_events['change_data'] = @_events['change_data'] or []
+    @_events['change_data'] = @_events['change_data'] || []
     @_events['change_data'].push(callback)
 
   onChangeIsModalShowing: (callback) ->
-    @_events['change_isModalShowing'] = @_events['change_isModalShowing'] or []
+    @_events['change_isModalShowing'] = @_events['change_isModalShowing'] || []
     @_events['change_isModalShowing'].push(callback)
 
   addData: (item) ->
