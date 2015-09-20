@@ -1,26 +1,38 @@
 class @SeniorModel
-  _events: {}
-  isShowModal: false
-  data: [
-    { name: 'AAA', amount: 2000 }
-    { name: 'BBB', amount: 10 }
-    { name: 'CCC', amount: 10000 }
-  ]
+  constructor: ->
+    @_events = {}
+    @_isModalShowing = false
+    @_data = [
+      { name: 'AAA', amount: 2000 }
+      { name: 'BBB', amount: 10 }
+      { name: 'CCC', amount: 10000 }
+    ]
 
-  get: (key) ->
-    @[key]
+  getData: ->
+    @_data
 
-  set: (key, value, silent) ->
-    @[key] = value
-    if not @_events[key] || silent
-      return
-    for callback in @_events[key]
-      (callback)()
+  setData: (value) ->
+    @_data = value
 
-  onChange: (key, callback) ->
-    @_events[key] = @_events[key] || []
-    @_events[key].push(callback)
+  getIsModalShowing: ->
+    @_isModalShowing
+
+  toggleIsModalShowing: ->
+    @_isModalShowing = !@_isModalShowing
+    @emit('change_isModalShowing')
+
+  emit: (eventName) ->
+    for callback in @_events[eventName]
+      callback()
+
+  onChangeData: (callback) ->
+    @_events['change_data'] = @_events['change_data'] or []
+    @_events['change_data'].push(callback)
+
+  onChangeIsModalShowing: (callback) ->
+    @_events['change_isModalShowing'] = @_events['change_isModalShowing'] or []
+    @_events['change_isModalShowing'].push(callback)
 
   addData: (item) ->
-    @data.push(item)
-    @set('data',  @data)
+    @_data.push(item)
+    @emit('change_data')
