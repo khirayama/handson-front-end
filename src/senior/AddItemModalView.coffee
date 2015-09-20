@@ -6,9 +6,9 @@ class @AddItemModalView
     @setEventListeners()
 
   setEventListeners: ->
-    @model.onChange 'isShowModal', =>
-      isShowModal = @model.get('isShowModal')
-      if isShowModal
+    @model.onChangeIsModalShowing =>
+      isModalShowing = @model.getIsModalShowing()
+      if isModalShowing
         @show()
       else
         @hide()
@@ -23,8 +23,8 @@ class @AddItemModalView
     @$el.classList.remove('is-open')
 
   addItem: ->
-    _name = @$itemNameInput.value
-    _amount = @$itemAmountInput.value
-    item = { name: _name, amount: _amount }
+    name = @$itemNameInput.value
+    amount = @$itemAmountInput.value
+    item = { name: name, amount: amount }
     @model.addData(item)
-    @model.set('isShowModal', false)
+    @model.toggleIsModalShowing()

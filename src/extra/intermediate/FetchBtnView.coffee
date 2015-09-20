@@ -5,8 +5,7 @@ class FetchBtnView extends MicroView
     super()
 
   setEventListeners: ->
-    @on(@$el, 'click', =>
+    @on @$el, 'click', =>
       @model.fetch()
-    )
 
 microModule.export(FetchBtnView)

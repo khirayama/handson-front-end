@@ -1,9 +1,8 @@
 MicroModel = microModule.import('MicroModel')
 
 class IntermediateModel extends MicroModel
-  data: []
-
   constructor: ->
+    @data = []
     @fetch()
 
   fetch: ->

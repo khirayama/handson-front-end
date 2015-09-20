@@ -7,7 +7,7 @@ class MicroView
 
   # create methods
   @render: (viewClass, $el, args) ->
-    args = args or []
+    args = args || []
     createClass = (_args) ->
       viewClass.apply(this, _args)
     createClass:: = viewClass::
@@ -39,7 +39,7 @@ class MicroView
     @::find(selector)
 
   find: (selector) ->
-    $root = @$el or document
+    $root = @$el || document
     $root.querySelectorAll(selector)
 
   html: ($el, html) ->
@@ -88,20 +88,20 @@ class MicroView
 
   # helper
   _isDOMCollection: ($el) ->
-    if typeof $el is 'object' and $el.length
+    if typeof $el == 'object' && $el.length
       return true
     return false
   _isDOM: ($el) ->
-    if typeof $el is 'object' and not $el.length
+    if typeof $el == 'object' && !$el.length
       return true
     return false
   _isSelector: ($el) ->
-    if typeof $el is 'string'
+    if typeof $el == 'string'
       return true
     return false
 
 if microModule
   microModule.export(MicroView)
 else
-  window.Micro = Micro or {}
+  window.Micro = Micro || {}
   window.Micro.View = MicroView

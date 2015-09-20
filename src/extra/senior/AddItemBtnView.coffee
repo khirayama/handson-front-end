@@ -5,8 +5,7 @@ class AddItemBtnView extends MicroView
     super()
 
   setEventListeners: ->
-    @on(@$el, 'click', =>
+    @on @$el, 'click', =>
       @model.set('isShowModal', true)
-    )
 
 microModule.export(AddItemBtnView)
