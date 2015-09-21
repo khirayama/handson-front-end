@@ -17,9 +17,9 @@
   "author": "Kotaro Hirayama",
   "license": "BSD",
   "devDependencies": {
-    "browser-sync": "^2.9.1",
-    "coffeelint": "^1.11.1",
-    "del": "^2.0.1",
+    "browser-sync": "^2.9.4",
+    "coffeelint": "^1.12.1",
+    "del": "^2.0.2",
     "gulp": "^3.9.0",
     "gulp-coffee": "^2.3.1",
     "gulp-jade": "^1.1.0",
@@ -27,7 +27,7 @@
     "gulp-pleeease": "^1.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.0.4",
-    "node-sass": "^3.3.2",
+    "node-sass": "^3.3.3",
     "rimraf": "^2.4.3"
   }
 }
